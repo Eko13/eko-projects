@@ -9,17 +9,18 @@ user.email "eko13.97@gmail.com"
  fatal: Could not read from remote repository.
 
  Please make sure you have the correct access rights
- and the repository exists.
-"
-git remote get-url origin           - смотрит на путь
+ and the repository exists."
+
+git remote get-url origin           - смотрит на путь (даёт сслыку на файл (для клонирования))
 git remote remove origin            - удаляет путь
 git remote add origin (ссылка на репу через https)      - перезаписывает путь
 
+************************************************
 
 Если при попытке пушнуть вылазиет:
 "remote: Permission to Eko13/eko-projects.git denied to deadpooll312.
- fatal: unable to access 'https://github.com/Eko13/eko-projects.git/': The requested URL returned URL returned error: 403
-"
+ fatal: unable to access 'https://github.com/Eko13/eko-projects.git/': The requested URL returned URL returned error: 403"
+
 nano .git/config  - в открывшемся (окне) записать логин и пароль к гитхабу
 
-
+************************************************
