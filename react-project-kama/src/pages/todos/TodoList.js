@@ -3,10 +3,13 @@ import TodoItem from "./TodoItem";
 
 
 const TodoList = props =>{
+
+    const todoRow = [{title:'Theme one'}, {title:'Theme Two'}];
+
     return(
         <div>
             <ul>
-                <TodoItem/>
+                <TodoItem todos={todoRow}/>
             </ul>
         </div>
     )
