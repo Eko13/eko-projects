@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../styles/chat.sass";
 import ChatMessage from './ChatMessage'
-
+import state from "../../../dataRedux/state";
 
 const Chat = props => {
 
@@ -9,7 +9,7 @@ const Chat = props => {
         <div className="chat-wrapper">
             <ul className="list_chat">
                 {
-                    props.state.rowsChatPostList.map((cp, index) => (
+                    state.profilePage.rowsChatPostList.map((cp, index) => (
                         <ChatMessage
                             key={`CHAT_POST_ITEM_${index}`}
                             name={cp.name}

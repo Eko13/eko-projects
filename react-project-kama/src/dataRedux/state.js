@@ -20,7 +20,16 @@ let state = {
             {id: 'cd3', message: 'Hi world'},
             {id: 'cd4', message: 'Hellow word'}
         ]
+    },
+    todoPage:{
+        todoList:[
+            {title:'Theme one', completed: false},
+            {title:'Theme two', completed: false},
+            {title:'Theme three', completed: true},
+            {title:'Theme four', completed: false}
+        ]
     }
+
 };
 
 export default state;
