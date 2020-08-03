@@ -1,8 +1,7 @@
 import React from 'react';
 import Banner from "../../components/home/banner/Banner";
 import Account from "../../components/home/account/Account";
-import Post from "../../components/home/post/Post";
-import Chat from "../../components/home/chat/Chat";
+import Posts from "../../components/home/posts/Posts";
 
 import "../../styles/home.sass"
 
@@ -15,9 +14,7 @@ const HomePage = props => {
 
             <Account/>
 
-            <Post/>
-
-            <Chat/>
+            <Posts/>
 
         </div>
     )

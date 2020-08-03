@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import TodoItem from "./TodoItem";
 import state from "../../dataRedux/state";
 
@@ -30,17 +30,6 @@ const TodoList = props => {
             addTodo();
         }
     };
-
-    // get data from local storage, call only once
-    useEffect(()=>{
-      const raw = localStorage.getItem('todoRow') || [];
-      setTodoRow(JSON.parse(raw))
-    },[]);
-
-    // save data in local storage
-    useEffect(()=>{
-      localStorage.setItem('todoRow', JSON.stringify(todoRow))
-    }, [todoRow]);
 
     return (
         <div className="todo-wrapper page-wrapper">

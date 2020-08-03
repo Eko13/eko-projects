@@ -12,7 +12,7 @@ const Dialogs = props => {
 
             <h2>Dialogs</h2>
 
-            <div className="flex-wrap">
+            <div className="flex-wrapper">
                 <div className="list-dialogs_wrap">
                     {state.messagesPage.rowsListDialogs.map((ld, index) => (
                         <DialogItem

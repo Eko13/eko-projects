@@ -44,8 +44,12 @@ const App = props => {
                         <Route path="/news" component={News}/>
                         <Route path="/music" component={Music}/>
                         <Route path="/settings" component={Settings}/>
-
-                        <Route path="/todo" component={TodoList}/>
+                        <Route
+                          path="/todo"
+                          render={
+                              ()=> <TodoList/>
+                          }
+                        />
 
                     </div>
                 </div>

@@ -1,24 +1,49 @@
 body
   overflow-y: scroll !important
+  background-color: #f7f9fc !important
+
+ul
+  padding-left: 0
+  li
+    color: cadetblue
+    list-style-type: none
 
 a, button, i
   transition: .3s
 
-.flex-wrap
+.flex-wrapper
   display: flex
+  flex-direction: row
+  height: 100%
+
+.main-wrapper
+  min-height: 100vh
+  position: relative
+  display: flex
+  justify-content: space-between
+
+.container
+  width: 1170px
+  height: 100%
+
+.content-wrapper
+  width: 80%
+  margin-left: 20%
+  padding-top: 100px
+  position: relative
 
 .btn
-  padding: 10px
+  padding: 12px 16px
   background-color: #ddd
   border-color: #37414f
   color: #222
   border-radius: 4px
-  transition: .3s
+  min-height: auto
+  height: 100%
   &:hover
     background-color: #eee
   &.btn-custom
     background-color: #fff
-    
 
 .color-danger
   color: indianred
