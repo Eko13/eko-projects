@@ -18,7 +18,7 @@ const Posts = props => {
 
             <ul className="list_posts">
                 {
-                    state.profilePage.rowsChatPostList.map((cp, index) => (
+                    state.profilePage.rowsPostsList.map((cp, index) => (
                         <PostItem
                             key={`POST__ITEM_${index}`}
                             name={cp.name}

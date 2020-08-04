@@ -1,6 +1,7 @@
 import React from "react";
 import '../../styles/sidebar.sass';
 import {NavLink} from "react-router-dom";
+import BestFriends from "../friends/BestFriends";
 
 const Sidebar = props => {
 
@@ -14,6 +15,9 @@ const Sidebar = props => {
                 <li><NavLink to="/settings" className="item_sidebar">Settings</NavLink></li>
                 <li><NavLink to="/todo" className="item_sidebar">To do page</NavLink></li>
             </ul>
+
+            <BestFriends/>
+
         </div>
     )
 };

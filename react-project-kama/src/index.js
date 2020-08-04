@@ -15,7 +15,7 @@ import state from './dataRedux/state';
 
 
 ReactDOM.render(
-    <App/>,
+    <App appState={state}/>,
     document.getElementById("root")
 );
 

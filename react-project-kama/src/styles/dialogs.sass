@@ -28,14 +28,30 @@
     border: 2px solid #27414f
     border-radius: 5px
 
-    .item-chat_wrap
-
-      margin-bottom: 10px
-
-      .item-chat
+    .item-chat
+      &.__wrap
+        margin-bottom: 10px
+        display: flex
+      &.you
+        text-align: right
+        justify-content: flex-end
+        .__inner-wrap
+          padding: 10px 15px 10px 30px
+      &.person
+        text-align: left
+        justify-content: flex-start
+        .__inner-wrap
+          padding: 10px 30px 10px 15px
+      &.__inner-wrap
         display: inline-block
         background-color: #fff
-        padding: 7px 30px 7px 15px
         border: 1px solid #27414f
         border-radius: 5px
+      &.__message-wrap
+        color: #222
+        p
+          margin-bottom: 0
+      &.__info
+        h5
+          margin: 0
 

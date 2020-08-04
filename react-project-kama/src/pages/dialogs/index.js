@@ -26,8 +26,11 @@ const Dialogs = props => {
                     {state.messagesPage.rowsChatDialogs.map((cd, index) => (
                         <MessageItem
                             key={`CHAT_DIALOGS_ITEM_${index}`}
+                            name={cd.personName}
                             message={cd.message}
-                            id={cd.id}/>
+                            id={cd.id}
+                            position={cd.whoWrite}
+                        />
                     ))}
                 </div>
             </div>
