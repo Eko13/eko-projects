@@ -5,14 +5,23 @@ import state from "../../../dataRedux/state";
 
 const Posts = props => {
 
+    const addPostButton = () => {
+        alert('newPost');
+    };
+
     return (
         <div className="posts-wrapper">
 
             <div className="post-wrapper">
               <h4>My post</h4>
               <div className="form-wrapper">
-                <input className="add-post-field" type="text" placeholder="message"/>
-                <button className="btn">Send</button>
+                <input className="add-post-field"
+                       type="text"
+                       placeholder="message"
+                       id="new-post-text"/>
+                <button className="btn"
+                        onClick={addPostButton}
+                >Add Post</button>
               </div>
             </div>
 
@@ -21,10 +30,8 @@ const Posts = props => {
                     state.profilePage.rowsPostsList.map((cp, index) => (
                         <PostItem
                             key={`POST__ITEM_${index}`}
-                            name={cp.name}
-                            age={cp.age}
-                            message={cp.age}
-                            like={cp.like}/>
+                            {...cp}
+                        />
                     ))
                 }
             </ul>
