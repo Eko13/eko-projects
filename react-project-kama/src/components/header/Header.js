@@ -3,15 +3,19 @@ import '../../styles/header.sass';
 
 const Header = () => {
 
+    const foo = () =>{
+      alert('Header not working, but work sidebar!')
+    };
+
     return (
         <div className="header">
-            <a href='#' className="brand-link">
+            <button href='#' className="brand-link">
                 <img src="https://w7.pngwing.com/pngs/219/256/png-transparent-phoenix-logo-flame-football-s-daquan-leaf-flower-symbol.png" alt=""/>
-            </a>
+            </button>
             <div>
-                <a href='#s' className="header-link">FAQ</a>
-                <a href='#s' className="header-link">TEST</a>
-                <a href='#s' className="header-link">LINK</a>
+                <button onClick={foo} className="header-link">FAQ</button>
+                <button onClick={foo} className="header-link">TEST</button>
+                <button onClick={foo} className="header-link">LINK</button>
             </div>
         </div>
     )

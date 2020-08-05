@@ -4,6 +4,7 @@ import Account from "../../components/home/account/Account";
 import Posts from "../../components/home/posts/Posts";
 
 import "../../styles/home.sass"
+import {addNewPost} from "../../dataRedux/state";
 
 const HomePage = props => {
 
@@ -14,7 +15,11 @@ const HomePage = props => {
 
             <Account/>
 
-            <Posts/>
+            <Posts
+              statePosts={props.stateProfilePage}
+              addNewPost={props.addNewPost}
+              updatePostText={props.updatePostText}
+            />
 
         </div>
     )

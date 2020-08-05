@@ -15,6 +15,7 @@ import Settings from "./pages/settings";
 import Sidebar from "./components/sidebar/Sidebar";
 import Header from "./components/header/Header";
 import TodoList from "./pages/todos/TodoList";
+import {addNewPost} from "./dataRedux/state";
 
 const App = props => {
 
@@ -32,13 +33,19 @@ const App = props => {
                         <Route
                             path="/home"
                             render={() =>
-                                <HomePage/>
+                                <HomePage
+                                  stateProfilePage={props.appState.profilePage}
+                                  addNewPost={props.addNewPost}
+                                  updatePostText={props.updatePostText}
+                                />
                             }
                         />
                         <Route
                             path="/dialogs"
                             render={() =>
-                                <Dialogs/>
+                                <Dialogs
+                                    stateDialogs={props.appState.messagesPage}
+                                />
                             }
                         />
                         <Route path="/news" component={News}/>
@@ -47,7 +54,9 @@ const App = props => {
                         <Route
                           path="/todo"
                           render={
-                              ()=> <TodoList/>
+                              ()=> <TodoList
+                                        stateTodo={props.appState.todoPage}
+                                    />
                           }
                         />
 

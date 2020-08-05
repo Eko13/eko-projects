@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import TodoItem from "./TodoItem";
-import state from "../../dataRedux/state";
 
 const TodoList = props => {
 
-    const [todoRow, setTodoRow] = useState(state.todoPage.todoList);
+    const [todoRow, setTodoRow] = useState(props.stateTodo.todoList);
 
     const [todoTitle, setTodoTitle] = useState('');
 

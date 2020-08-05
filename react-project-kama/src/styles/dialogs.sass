@@ -22,12 +22,14 @@
         &.active
           color: goldenrod
 
-  .chat-dialogs_wrap
-    width: calc(66% - 60px)
-    padding: 30px
-    border: 2px solid #27414f
-    border-radius: 5px
-
+  .chat-dialogs
+    &.__wrap
+      width: calc(66% - 60px)
+      padding-left: 60px
+    &.__inner-wrap
+      padding: 30px
+      border: 2px solid #27414f
+      border-radius: 5px
     .item-chat
       &.__wrap
         margin-bottom: 10px
@@ -56,3 +58,22 @@
         h5
           margin: 0
 
+    .write-message__block
+      padding: 30px
+      width: calc(100% - 60px)
+      border: 2px solid #27414f
+      margin-top: 10px
+      border-radius: 5px
+      textarea
+        border: 1px solid #27414f
+        max-width: calc(100% - 20px)
+        min-width: calc(100% - 20px)
+        width: calc(100% - 20px)
+        min-height: 40px
+        max-height: 80px
+        overflow-y: auto
+        background-color: #fff
+        border-radius: 5px
+        margin-bottom: 5px
+        padding: 10px
+        
