@@ -3,8 +3,8 @@ import './App.css';
 import './App.sass';
 
 import {
-    BrowserRouter as Router,
-    Route
+  BrowserRouter as Router,
+  Route
 } from "react-router-dom";
 
 import HomePage from './pages/home';
@@ -15,57 +15,61 @@ import Settings from "./pages/settings";
 import Sidebar from "./components/sidebar/Sidebar";
 import Header from "./components/header/Header";
 import TodoList from "./pages/todos/TodoList";
-import {addNewPost} from "./dataRedux/state";
 
 const App = props => {
 
+  return (
+    <Router>
+      <div className="App">
+        <div className="main-wrapper">
+          <div className="sidebar-wrapper">
+            <Sidebar/>
+          </div>
+          <div className="content-wrapper">
+            <Header/>
 
-    return (
-        <Router>
-            <div className="App">
-                <div className="main-wrapper">
-                    <div className="sidebar-wrapper">
-                        <Sidebar/>
-                    </div>
-                    <div className="content-wrapper">
-                        <Header/>
+            <Route
+              path="/home"
+              render={() =>
+                <HomePage
+                  stateProfilePage={props.appState.profilePage}
+                  store={props.appStore}
+                />
+              }
+            />
+            <Route
+              path="/dialogs"
+              render={() =>
+                <Dialogs
+                  stateDialogs={props.appState.messagesPage}
+                />
+              }
+            />
+            <Route
+              path="/news"
+              render={()=>
+                <News
+                  appStore={props.appStore}
+                />
+              }
+            />
+            <Route path="/music" component={Music}/>
+            <Route path="/settings" component={Settings}/>
+            <Route
+              path="/todo"
+              render={
+                () => <TodoList
+                  stateTodo={props.appState.todoPage}
+                />
+              }
+            />
 
-                        <Route
-                            path="/home"
-                            render={() =>
-                                <HomePage
-                                  stateProfilePage={props.appState.profilePage}
-                                  addNewPost={props.addNewPost}
-                                  updatePostText={props.updatePostText}
-                                />
-                            }
-                        />
-                        <Route
-                            path="/dialogs"
-                            render={() =>
-                                <Dialogs
-                                    stateDialogs={props.appState.messagesPage}
-                                />
-                            }
-                        />
-                        <Route path="/news" component={News}/>
-                        <Route path="/music" component={Music}/>
-                        <Route path="/settings" component={Settings}/>
-                        <Route
-                          path="/todo"
-                          render={
-                              ()=> <TodoList
-                                        stateTodo={props.appState.todoPage}
-                                    />
-                          }
-                        />
+          </div>
+        </div>
+      </div>
+    </Router>
 
-                    </div>
-                </div>
-            </div>
-        </Router>
-
-    )
+  )
 
 };
 

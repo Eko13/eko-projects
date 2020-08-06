@@ -17,7 +17,7 @@ const HomePage = props => {
 
             <Posts
               statePosts={props.stateProfilePage}
-              addNewPost={props.addNewPost}
+              store={props.store}
               updatePostText={props.updatePostText}
             />
 

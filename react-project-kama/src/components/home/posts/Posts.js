@@ -8,12 +8,12 @@ const Posts = props => {
 
   const addPost = () => {
     let postText = newPostTitle.current.value;
-    props.addNewPost(postText);
+    props.store.addNewPost(postText);
   };
 
   const onPostChange = () => {
-    let changeText = newPostTitle.current.value;
-    props.updatePostText(changeText);
+    let changeNewText = newPostTitle.current.value;
+    props.store.updateNewPost(changeNewText);
   };
 
   const addPostOnButton = ()=>{

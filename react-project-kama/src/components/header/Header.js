@@ -4,7 +4,7 @@ import '../../styles/header.sass';
 const Header = () => {
 
     const foo = () =>{
-      alert('Header not working, but work sidebar!')
+      alert('Header does not work, but Sidebar works!')
     };
 
     return (

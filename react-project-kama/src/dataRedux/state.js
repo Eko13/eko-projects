@@ -1,11 +1,11 @@
-import {renderEntireTree} from "../render";
 
 let state = {
+  seeText: 'seeText in state',
   profilePage: {
     rowsPostsList: [
-      {id: 'cp1', name: 'Dima', age: '30', message: 'Lorem1', like: '123'},
-      {id: 'cp2', name: 'Geema', age: '310', message: 'Lorem222', like: '32'},
-      {id: 'cp3', name: 'Histl', age: '534', message: 'Lorem333333', like: '28'}
+      {id: 'cp1', name: 'Dima', age: 25, message: 'Lorem1', like: 12},
+      {id: 'cp2', name: 'Geema', age: 26, message: 'Lorem222', like: 123},
+      {id: 'cp3', name: 'Histl', age: 27, message: 'Lorem333333', like: 1234}
     ],
     newPostText:'Post static text',
   },
@@ -46,22 +46,27 @@ let state = {
 
 window.stateOne = state;
 
-export let addNewPost = (newMessageText) => {
-    let newPostItem = {
-        id: 'cp5',
-        name: 'Lipo',
-        age: 89,
-        message: newMessageText,
-        like: 3
-    };
-    state.profilePage.rowsPostsList.push(newPostItem);
-    state.profilePage.newPostText = '';
-    renderEntireTree(state);
-};
+// export const addNewPost = (newMessageText) => {
+//     let newPostItem = {
+//         id: 'cp5',
+//         name: 'Lipo',
+//         age: 89,
+//         message: newMessageText,
+//         like: 3
+//     };
+//     state.profilePage.rowsPostsList.push(newPostItem);
+//     state.profilePage.newPostText = '';
+//     renderEntireTree(state);
+// };
 
-export let updateNewPost = (updateText) => {
-    state.profilePage.newPostText = updateText;
-    renderEntireTree(state);
-};
+// export const updateNewPost = (updateText) => {
+//     state.profilePage.newPostText = updateText;
+//     renderEntireTree(state);
+// };
+
+// export const renderAppSubscribe = (observer) =>{
+//   renderEntireTree = observer;
+// };
+
 
 export default state;

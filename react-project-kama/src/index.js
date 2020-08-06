@@ -1,8 +1,25 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {renderEntireTree} from './render';
 import state from './dataRedux/state';
+import store from './dataRedux/store';
 
-renderEntireTree(state);
+let renderEntireTreeIndex = () =>{
+  ReactDOM.render(
+    <App
+      appState={state}
+      appStore={store}
+    />,
+    document.getElementById("root")
+  );
+};
+
+renderEntireTreeIndex(state);
+
+
+store.renderAppSubscribe(renderEntireTreeIndex);
 
 
 // If you want your app to work offline and load faster, you can change
