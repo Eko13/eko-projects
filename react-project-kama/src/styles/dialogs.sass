@@ -1,0 +1,79 @@
+.dialogs-wrapper
+  padding: 30px
+
+  .list-dialogs_wrap
+    width: calc(30% - 60px)
+    padding: 30px
+    border: 2px solid #27414f
+    border-radius: 5px
+
+    .item-dialogs_wrap
+      border-bottom: 1px solid #27414f
+
+      a
+        display: block
+        padding: 10px 10px 10px 0
+        text-decoration: none
+        color: #252525
+
+        &:hover
+          background-color: lightgray
+
+        &.active
+          color: goldenrod
+
+  .chat-dialogs
+    &.__wrap
+      width: calc(66% - 60px)
+      padding-left: 60px
+    &.__inner-wrap
+      padding: 30px
+      border: 2px solid #27414f
+      border-radius: 5px
+    .item-chat
+      &.__wrap
+        margin-bottom: 10px
+        display: flex
+      &.you
+        text-align: right
+        justify-content: flex-end
+        .__inner-wrap
+          padding: 10px 15px 10px 30px
+      &.person
+        text-align: left
+        justify-content: flex-start
+        .__inner-wrap
+          padding: 10px 30px 10px 15px
+      &.__inner-wrap
+        display: inline-block
+        min-width: 320px
+        background-color: #fff
+        border: 1px solid #27414f
+        border-radius: 5px
+      &.__message-wrap
+        color: #222
+        p
+          margin-bottom: 0
+      &.__info
+        h5
+          margin: 0
+
+    .write-message__block
+      padding: 30px
+      width: calc(100% - 60px)
+      border: 2px solid #27414f
+      margin-top: 10px
+      border-radius: 5px
+      textarea
+        border: 1px solid #27414f
+        max-width: calc(100% - 20px)
+        min-width: calc(100% - 20px)
+        width: calc(100% - 20px)
+        min-height: 40px
+        max-height: 80px
+        overflow-y: auto
+        background-color: #fff
+        border-radius: 5px
+        margin-bottom: 5px
+        padding: 10px
+        
