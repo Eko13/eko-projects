@@ -3,20 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state from './dataRedux/state';
 import store from './dataRedux/store';
 
-let renderEntireTreeIndex = () =>{
+let renderEntireTreeIndex = (appState) =>{
   ReactDOM.render(
     <App
-      appState={state}
-      appStore={store}
+      appData={appState}
+      dispatch={store.dispatch.bind(store)}
     />,
     document.getElementById("root")
   );
 };
 
-renderEntireTreeIndex(state);
+renderEntireTreeIndex(store.getState());
 
 
 store.renderAppSubscribe(renderEntireTreeIndex);

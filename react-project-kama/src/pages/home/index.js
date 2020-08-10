@@ -4,7 +4,6 @@ import Account from "../../components/home/account/Account";
 import Posts from "../../components/home/posts/Posts";
 
 import "../../styles/home.sass"
-import {addNewPost} from "../../dataRedux/state";
 
 const HomePage = props => {
 
@@ -16,9 +15,9 @@ const HomePage = props => {
             <Account/>
 
             <Posts
-              statePosts={props.stateProfilePage}
-              store={props.store}
-              updatePostText={props.updatePostText}
+              statePosts={props.appData.profilePage}
+              staticText={props.appData.staticText}
+              dispatch={props.dispatch}
             />
 
         </div>

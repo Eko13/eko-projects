@@ -1,21 +1,23 @@
 import React from 'react';
 
-const News = (props) =>{
+const News = (props) => {
 
-    return(
-        <div className="news-wrapper">
-            News
+  return (
+    <div className="news-wrapper">
+      News
 
-          <button
-            onClick={()=> props.appStore.showAlert()}
-          >
-            Click me to see alert
-          </button>
+      <div>
+        <button
+          onClick={() => props.dispatch({type:'SHOW_ALERT'})}
+        >
+          Click me to see alert
+        </button>
+      </div>
 
-          <p>{props.appStore.storeSomeText}</p>
+      <p>{props.appData.seeText}</p>
 
-        </div>
-    )
+    </div>
+  )
 };
 
 export default News;

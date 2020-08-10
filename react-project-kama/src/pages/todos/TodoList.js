@@ -3,61 +3,64 @@ import TodoItem from "./TodoItem";
 
 const TodoList = props => {
 
-    const [todoRow, setTodoRow] = useState(props.stateTodo.todoList);
+  const [todoRow, setTodoRow] = useState(props.stateTodo.todoList);
 
-    const [todoTitle, setTodoTitle] = useState('');
+  const newTodoTitle = React.createRef();
 
-    const addTodo = event =>{
-        setTodoRow([
-            ...todoRow,
-            {
-                title: todoTitle,
-                completed: false
-            }
-        ]);
-        setTodoTitle('')
-    };
+  const addTodo = () => {
+    let todoText = newTodoTitle.current.value;
+    // props.appStore.addNewTodoPoint(todoText);
+    props.dispatch({type: 'ADD_NEW_TODO_ITEM', newTodoText: todoText});
+  };
 
-    const addTodoPress = event => {
-        if (event.key === "Enter" && todoTitle !== '') {
-            addTodo();
-        }
-    };
+  const onTodoChange = () => {
+    let newTodoText = newTodoTitle.current.value;
+    // props.appStore.updateNewTodoItem(newTodoText);
+    props.dispatch({type: 'UPDATE_NEW_TODO_ITEM', updateText: newTodoText});
+  };
 
-    const addTodoBtn =event=>{
-        if(todoTitle !== ''){
-            addTodo();
-        }
-    };
+  const addTodoOnButton = () => {
+    if (props.staticText.todoStaticText !== '') {
+      addTodo();
+    }
+  };
 
-    return (
-        <div className="todo-wrapper page-wrapper">
+  const addTodoPress = event => {
+    if (event.key === "Enter" && props.staticText.todoStaticText !== '') {
+      addTodo();
+    }
+  };
 
-            <h2>Todo list</h2>
+  return (
+    <div className="todo-wrapper page-wrapper">
 
-            <input
-                type="text"
-                value={todoTitle}
-                onChange={event => {setTodoTitle(event.target.value)}}
-                onKeyPress={addTodoPress}
-            />
-            <button
-                onClick={addTodoBtn}
-                className="btn btn-custom"
-            >
-                Add todo
-            </button>
+      <h2>Todo list</h2>
 
-            <ul className="todo-list">
-                {todoRow.map((tl, index) => (
-                    <TodoItem
-                        key={`TODO_LIST_ITEM_${index}`}
-                        {...tl}/>
-                ))}
+      <input
+        ref={newTodoTitle}
+        type="text"
+        value={props.staticText.todoStaticText}
+        placeholder="Enter todo point"
+        onChange={onTodoChange}
+        onKeyPress={addTodoPress}
+      />
+      <button
+        onClick={addTodoOnButton}
+        className="btn btn-custom"
+      >
+        Add todo
+      </button>
 
-            </ul>
-        </div>
-    )
+      <ul className="todo-list">
+        {todoRow.map((tl, index) => (
+          <TodoItem
+            key={`TODO_LIST_ITEM_${index}`}
+            {...tl}/>
+        ))}
+
+      </ul>
+    </div>
+  )
 };
 
 export default TodoList;

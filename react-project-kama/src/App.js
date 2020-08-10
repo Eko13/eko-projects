@@ -28,38 +28,38 @@ const App = props => {
           <div className="content-wrapper">
             <Header/>
 
-            <Route
-              path="/home"
+            <Route path="/home"
               render={() =>
                 <HomePage
-                  stateProfilePage={props.appState.profilePage}
-                  store={props.appStore}
+                  appData={props.appData}
+                  dispatch={props.dispatch}
                 />
               }
             />
-            <Route
-              path="/dialogs"
+            <Route path="/dialogs"
               render={() =>
                 <Dialogs
-                  stateDialogs={props.appState.messagesPage}
+                  stateDialogs={props.appData.messagesPage}
                 />
               }
             />
-            <Route
-              path="/news"
+            <Route path="/news"
               render={()=>
                 <News
-                  appStore={props.appStore}
+                  // appStore={props.appStore}
+                  dispatch={props.dispatch}
+                  appData={props.appData}
                 />
               }
             />
             <Route path="/music" component={Music}/>
             <Route path="/settings" component={Settings}/>
-            <Route
-              path="/todo"
+            <Route path="/todo"
               render={
                 () => <TodoList
-                  stateTodo={props.appState.todoPage}
+                  stateTodo={props.appData.todoPage}
+                  staticText={props.appData.staticText}
+                  dispatch={props.dispatch}
                 />
               }
             />

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import state from "../../dataRedux/state";
+import store from "../../dataRedux/store";
 
 const BestFriends = props => {
 
   return (
     <div className="best-friends __wrap">
       <div className="best-friends __inner-wrap">
-        {state.bestFriends.rowBestFriends.map((bf, index) => (
+        {store.getState().bestFriends.rowBestFriends.map((bf, index) => (
           <div className="friend-item __wrap"
                key={`BEST_FRIEND_ITEM_${index}`}
           >
