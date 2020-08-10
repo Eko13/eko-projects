@@ -10,7 +10,11 @@ const Dialogs = props => {
 
   const addNewMessage = () => {
     let textMessage = newMessageText.current.value;
-    alert(textMessage);
+    if(textMessage !== ''){
+      alert(textMessage);
+    }else{
+      alert('Нельзя')
+    }
   };
 
   return (

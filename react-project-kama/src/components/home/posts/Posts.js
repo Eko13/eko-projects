@@ -8,22 +8,24 @@ const Posts = props => {
 
   const addPost = () => {
     let postText = newPostTitle.current.value;
-    props.addNewPost(postText);
+    // props.appStore.addNewPost(postText);
+    props.dispatch({type:'ADD_NEW_POST', newPostMessage: postText});
   };
 
   const onPostChange = () => {
-    let changeText = newPostTitle.current.value;
-    props.updatePostText(changeText);
+    let changeNewText = newPostTitle.current.value;
+    // // props.updateNewPost(changeNewText);
+    props.dispatch({type:'UPDATE_NEW_POST', updateText: changeNewText});
   };
 
   const addPostOnButton = ()=>{
-    if(props.statePosts.newPostText !== ''){
+    if(props.staticText.postStaticText !== ''){
       addPost();
     }
   };
 
   const addPostOnPress = event =>{
-    if(event.key === "Enter" && props.statePosts.newPostText !== ''){
+    if(event.key === "Enter" && props.staticText.postStaticText !== ''){
       addPost();
     }
   };
@@ -40,7 +42,7 @@ const Posts = props => {
             placeholder="message"
             ref={newPostTitle}
             id="new-post-text"
-            value={props.statePosts.newPostText}
+            value={props.staticText.postStaticText}
             onChange={onPostChange}
             onKeyPress={addPostOnPress}
           />
