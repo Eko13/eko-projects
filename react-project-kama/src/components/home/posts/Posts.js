@@ -2,6 +2,14 @@ import React from "react";
 import "../../../styles/posts.sass";
 import PostItem from './PostItem'
 
+const addNewPostActionCreator =(props)=>{
+  return{type:'ADD_NEW_POST', newPostMessage: props}
+};
+
+const updateNewPostActionCreator =(props)=>{
+  return{type:'UPDATE_NEW_POST', updateText: props}
+};
+
 const Posts = props => {
 
   let newPostTitle = React.createRef();
@@ -9,13 +17,14 @@ const Posts = props => {
   const addPost = () => {
     let postText = newPostTitle.current.value;
     // props.appStore.addNewPost(postText);
-    props.dispatch({type:'ADD_NEW_POST', newPostMessage: postText});
+    props.dispatch(addNewPostActionCreator(postText));
   };
 
   const onPostChange = () => {
     let changeNewText = newPostTitle.current.value;
     // // props.updateNewPost(changeNewText);
-    props.dispatch({type:'UPDATE_NEW_POST', updateText: changeNewText});
+    let action = updateNewPostActionCreator(changeNewText);
+    props.dispatch(action);
   };
 
   const addPostOnButton = ()=>{
