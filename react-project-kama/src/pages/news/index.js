@@ -1,10 +1,11 @@
 import React from 'react';
+import {showAlertActionType} from '../../dataRedux/store';
 
 const News = (props) => {
 
 
   const callAlert=()=>{
-    props.dispatch({type:'SHOW_ALERT'})
+    props.dispatch(showAlertActionType)
   };
 
   return (

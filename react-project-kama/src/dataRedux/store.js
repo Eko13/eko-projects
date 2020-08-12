@@ -1,4 +1,9 @@
-import state from './state';
+const ADD_NEW_POST = 'ADD_NEW_POST';
+const UPDATE_NEW_POST = 'UPDATE_NEW_POST';
+const ADD_NEW_TODO_ITEM = 'ADD_NEW_TODO_ITEM';
+const UPDATE_NEW_TODO_ITEM = 'UPDATE_NEW_TODO_ITEM';
+const SHOW_ALERT = 'SHOW_ALERT';
+
 
 let store = {
 
@@ -26,11 +31,11 @@ let store = {
         {id: 'ld5', name: 'Siky'}
       ],
       rowsChatDialogs: [
-        {id: 'cd1', personName: 'Luda', whoWrite: 'you', message: 'Hi'},
-        {id: 'cd2', personName: 'Bek', whoWrite: 'person', message: 'Hellow'},
-        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right'},
-        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right 2'},
-        {id: 'cd4', personName: 'Bek', whoWrite: 'person', message: 'Hellow word'}
+        {id: 'cd1', personName: 'Luda', whoWrite: 'you', message: 'Hi', timeSend: '12352434'},
+        {id: 'cd2', personName: 'Bek', whoWrite: 'person', message: 'Hellow', timeSend: '12352434'},
+        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right', timeSend: '12352434'},
+        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right 2', timeSend: '12352434'},
+        {id: 'cd4', personName: 'Bek', whoWrite: 'person', message: 'Hellow word', timeSend: '12352434'}
       ]
     },
     todoPage: {
@@ -68,7 +73,6 @@ let store = {
     this._renderEntireTree = observer;
   },
 
-  //
   // addNewPost(newMessageText) {
   //   let newPostItem = {
   //     id: 'cp5',
@@ -81,12 +85,12 @@ let store = {
   //   this._state.staticText.postStaticText = '';
   //   this._renderEntireTree(state);
   // },
-  //
+
   // updateNewPost(updateText) {
   //   this._state.staticText.postStaticText = updateText;
   //   this._renderEntireTree(state);
   // },
-  //
+
   // addNewTodoPoint(newTodoText) {
   //   let newTodoItem = {
   //     title: newTodoText,
@@ -96,14 +100,14 @@ let store = {
   //   this._state.staticText.todoStaticText = '';
   //   this._renderEntireTree(state);
   // },
-  //
+
   // updateNewTodoItem(updateText) {
   //   this._state.staticText.todoStaticText = updateText;
   //   this._renderEntireTree(state);
   // },
 
   dispatch(action) {
-    if (action.type === 'ADD_NEW_POST') {
+    if (action.type === ADD_NEW_POST) {
       let newPostItem = {
         id: 'cp5',
         name: 'Lipo',
@@ -115,11 +119,11 @@ let store = {
       this._state.staticText.postStaticText = '';
       this._renderEntireTree(this._state);
     }
-    else if (action.type === 'UPDATE_NEW_POST') {
+    else if (action.type === UPDATE_NEW_POST) {
       this._state.staticText.postStaticText = action.updateText;
       this._renderEntireTree(this._state);
     }
-    else if (action.type === 'ADD_NEW_TODO_ITEM') {
+    else if (action.type === ADD_NEW_TODO_ITEM) {
       let newTodoItem = {
         title: action.newTodoText,
         completed: false,
@@ -128,17 +132,40 @@ let store = {
       this._state.staticText.todoStaticText = '';
       this._renderEntireTree(this._state);
     }
-    else if(action.type === 'UPDATE_NEW_TODO_ITEM'){
+    else if (action.type === UPDATE_NEW_TODO_ITEM) {
       this._state.staticText.todoStaticText = action.updateText;
       this._renderEntireTree(this._state);
     }
-    else if(action.type === 'SHOW_ALERT'){
+    else if (action.type === SHOW_ALERT) {
       alert(this._state.staticText.alertStaticText);
       // alert('broken text, must be refactoring');
     }
   },
 
 };
+
+
+export const addNewPostActionCreator = (postText) => {
+  return {type: ADD_NEW_POST, newPostMessage: postText}
+};
+
+export const updateNewPostActionCreator = (changeNewText) => {
+  return {type: UPDATE_NEW_POST, updateText: changeNewText}
+};
+
+export const addNewTodoItemActionCreator = (todoText) => {
+  return (
+    {type: ADD_NEW_TODO_ITEM, newTodoText: todoText}
+  )
+};
+
+export const updateNewTodoItemActionCreator = (newTodoText) => {
+  return (
+    {type: UPDATE_NEW_TODO_ITEM, newTodoText: newTodoText}
+  )
+};
+
+export const showAlertActionType = () => ({type: 'SHOW_ALERT'}); //и так можно ретёрнить
 
 export default store;
 

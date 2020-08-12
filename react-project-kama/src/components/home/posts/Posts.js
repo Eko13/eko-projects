@@ -1,14 +1,8 @@
 import React from "react";
 import "../../../styles/posts.sass";
 import PostItem from './PostItem'
+import {addNewPostActionCreator, updateNewPostActionCreator }from '../../../dataRedux/store';
 
-const addNewPostActionCreator =(props)=>{
-  return{type:'ADD_NEW_POST', newPostMessage: props}
-};
-
-const updateNewPostActionCreator =(props)=>{
-  return{type:'UPDATE_NEW_POST', updateText: props}
-};
 
 const Posts = props => {
 
@@ -22,23 +16,22 @@ const Posts = props => {
 
   const onPostChange = () => {
     let changeNewText = newPostTitle.current.value;
-    // // props.updateNewPost(changeNewText);
+    // props.updateNewPost(changeNewText);
     let action = updateNewPostActionCreator(changeNewText);
     props.dispatch(action);
   };
 
-  const addPostOnButton = ()=>{
-    if(props.staticText.postStaticText !== ''){
+  const addPostOnButton = () => {
+    if (props.staticText.postStaticText !== '') {
       addPost();
     }
   };
 
-  const addPostOnPress = event =>{
-    if(event.key === "Enter" && props.staticText.postStaticText !== ''){
+  const addPostOnPress = event => {
+    if (event.key === "Enter" && props.staticText.postStaticText !== '') {
       addPost();
     }
   };
-
 
   return (
     <div className="posts-wrapper">

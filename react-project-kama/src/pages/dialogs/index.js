@@ -23,7 +23,8 @@ const Dialogs = props => {
       <h2>Dialogs</h2>
 
       <div className="flex-wrapper">
-        <div className="list-dialogs_wrap">
+
+        <div className="list-dialogs __wrap">
           {props.stateDialogs.rowsListDialogs.map((ld, index) => (
             <DialogItem
               key={`LIST_DIALOGS_ITEM_${index}`}
@@ -33,32 +34,34 @@ const Dialogs = props => {
         </div>
 
         <div className="chat-dialogs __wrap">
-          <div className="chat-dialogs __inner-wrap">
+
+          <div className="messages-dialogs __wrap">
             {props.stateDialogs.rowsChatDialogs.map((cd, index) => (
               <MessageItem
                 key={`CHAT_DIALOGS_ITEM_${index}`}
                 name={cd.personName}
                 message={cd.message}
+                timeSend={cd.timeSend}
                 id={cd.id}
                 position={cd.whoWrite}
               />
             ))}
           </div>
-          <div className="write-message__block">
+
+          <div className="write-message __wrap">
             <div className="field-wrapper">
-            <textarea
-              name="newMassage"
-              placeholder="New massage"
-              ref={newMessageText}
-            />
+              <textarea
+                name="newMassage"
+                placeholder="New massage"
+                ref={newMessageText}
+              />
               <button
                 className="btn"
                 onClick={addNewMessage}
               >Send Message
               </button>
             </div>
-        </div>
-
+          </div>
 
         </div>
 

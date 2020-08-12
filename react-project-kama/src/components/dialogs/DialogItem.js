@@ -8,7 +8,7 @@ const DialogItem = props => {
 
     return (
         <React.Fragment>
-            <div className="item-dialogs_wrap">
+            <div className="item-dialogs __wrap">
                 <NavLink to={path}>{props.name}</NavLink>
             </div>
         </React.Fragment>
