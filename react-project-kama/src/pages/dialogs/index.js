@@ -2,7 +2,7 @@ import React from 'react';
 import "../../styles/dialogs.sass";
 import MessageItem from '../../components/dialogs/MessageItem';
 import DialogItem from '../../components/dialogs/DialogItem';
-
+import {addNewMessageTextActionCreator, updateNewMessageTextActionCreator } from '../../dataRedux/store';
 
 const Dialogs = props => {
 
@@ -10,11 +10,16 @@ const Dialogs = props => {
 
   const addNewMessage = () => {
     let textMessage = newMessageText.current.value;
-    if(textMessage !== ''){
-      alert(textMessage);
-    }else{
-      alert('Нельзя')
-    }
+    props.dispatch(addNewMessageTextActionCreator(textMessage));
+  };
+
+  const onMessageChange = ()=>{
+    let messageText = newMessageText.current.value;
+    props.dispatch(updateNewMessageTextActionCreator(messageText));
+  };
+
+  const showTime = ()=>{
+    alert('hi')
   };
 
   return (
@@ -25,7 +30,7 @@ const Dialogs = props => {
       <div className="flex-wrapper">
 
         <div className="list-dialogs __wrap">
-          {props.stateDialogs.rowsListDialogs.map((ld, index) => (
+          {props.appData.messagesPage.rowsListDialogs.map((ld, index) => (
             <DialogItem
               key={`LIST_DIALOGS_ITEM_${index}`}
               name={ld.name}
@@ -36,7 +41,7 @@ const Dialogs = props => {
         <div className="chat-dialogs __wrap">
 
           <div className="messages-dialogs __wrap">
-            {props.stateDialogs.rowsChatDialogs.map((cd, index) => (
+            {props.appData.messagesPage.rowsChatDialogs.map((cd, index) => (
               <MessageItem
                 key={`CHAT_DIALOGS_ITEM_${index}`}
                 name={cd.personName}
@@ -54,11 +59,14 @@ const Dialogs = props => {
                 name="newMassage"
                 placeholder="New massage"
                 ref={newMessageText}
+                value={props.appData.staticText.dialogStaticText}
+                onChange={onMessageChange}
               />
               <button
                 className="btn"
                 onClick={addNewMessage}
-              >Send Message
+              >
+                Send Message
               </button>
             </div>
           </div>
