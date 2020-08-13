@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import TodoItem from "./TodoItem";
-import {addNewTodoItemActionCreator, updateNewTodoItemActionCreator} from '../../dataRedux/store';
+import {addNewTodoItemActionCreator, updateNewTodoItemActionCreator} from '../../dataRedux/reducers/todoReducer';
 
 
 const TodoList = props => {
@@ -57,9 +57,10 @@ const TodoList = props => {
         {todoRow.map((tl, index) => (
           <TodoItem
             key={`TODO_LIST_ITEM_${index}`}
-            {...tl}/>
+            {...tl}
+            dispatch={props.dispatch}
+          />
         ))}
-
       </ul>
     </div>
   )

@@ -1,22 +1,20 @@
 import React from "react";
 import "../../../styles/posts.sass";
 import PostItem from './PostItem'
-import {addNewPostActionCreator, updateNewPostActionCreator }from '../../../dataRedux/store';
+import {addNewPostActionCreator, updateNewPostActionCreator }from '../../../dataRedux/reducers/postsReducer';
 
 
 const Posts = props => {
 
-  let newPostTitle = React.createRef();
+  let newTextText = React.createRef();
 
   const addPost = () => {
-    let postText = newPostTitle.current.value;
-    // props.appStore.addNewPost(postText);
+    let postText = newTextText.current.value;
     props.dispatch(addNewPostActionCreator(postText));
   };
 
-  const onPostChange = () => {
-    let changeNewText = newPostTitle.current.value;
-    // props.updateNewPost(changeNewText);
+  const onPostChange = (e) => {
+    let changeNewText = newTextText.current.value;
     let action = updateNewPostActionCreator(changeNewText);
     props.dispatch(action);
   };
@@ -42,15 +40,17 @@ const Posts = props => {
           <textarea
             className="add-post-field"
             placeholder="message"
-            ref={newPostTitle}
             id="new-post-text"
+            ref={newTextText}
             value={props.staticText.postStaticText}
             onChange={onPostChange}
             onKeyPress={addPostOnPress}
           />
-          <button className="btn"
-                  onClick={addPostOnButton}
-          >Add Post
+          <button
+            className="btn"
+            onClick={addPostOnButton}
+          >
+            Add Post
           </button>
         </div>
       </div>

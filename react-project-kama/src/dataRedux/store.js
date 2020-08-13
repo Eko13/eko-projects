@@ -1,7 +1,7 @@
-const ADD_NEW_POST = 'ADD_NEW_POST';
-const UPDATE_NEW_POST = 'UPDATE_NEW_POST';
-const ADD_NEW_TODO_ITEM = 'ADD_NEW_TODO_ITEM';
-const UPDATE_NEW_TODO_ITEM = 'UPDATE_NEW_TODO_ITEM';
+import PostReducer  from './reducers/postsReducer';
+import TodoReducer from "./reducers/todoReducer";
+
+
 const ADD_NEW_DIALOG_MESSAGE = 'ADD_NEW_DIALOG_MESSAGE';
 const UPDATE_NEW_DIALOG_MESSAGE = 'UPDATE_NEW_DIALOG_MESSAGE';
 const SHOW_ALERT = 'SHOW_ALERT';
@@ -110,87 +110,49 @@ let store = {
   // },
 
   randomIdByTime(){
-    let m = new Date();
-    return m.getUTCMilliseconds();
+    let date = new Date();
+    return date.getTime();
   },
 
   dispatch(action) {
-    if (action.type === ADD_NEW_POST) {
-      let newPostItem = {
-        id: 'cp5',
-        name: 'Lipo',
-        age: 89,
-        message: action.newPostMessage,
-        like: 3
-      };
-      this._state.profilePage.rowsPostsList.push(newPostItem);
-      this._state.staticText.postStaticText = '';
-      this._renderEntireTree(this._state);
-    }
-    else if (action.type === UPDATE_NEW_POST) {
-      this._state.staticText.postStaticText = action.updateText;
-      this._renderEntireTree(this._state);
-    }
-    else if (action.type === ADD_NEW_TODO_ITEM) {
-      let newTodoItem = {
-        title: action.newTodoText,
-        completed: false,
-      };
-      this._state.todoPage.todoList.push(newTodoItem);
-      this._state.staticText.todoStaticText = '';
-      this._renderEntireTree(this._state);
-    }
-    else if (action.type === UPDATE_NEW_TODO_ITEM) {
-      this._state.staticText.todoStaticText = action.updateText;
-      this._renderEntireTree(this._state);
-    }
-    else if (action.type === ADD_NEW_DIALOG_MESSAGE){
-      let newDialogMessage ={
-        id: this.randomIdByTime + 2,
-        personName: 'Luda',
-        whoWrite: 'you',
-        message: 'Hi',
-        timeSend: this.randomIdByTime,
-      };
-      this._state.messagesPage.rowsChatDialogs.push(newDialogMessage);
-      this._state.staticText.dialogStaticText = '';
-      this._renderEntireTree(this._state);
-    }
-    else if (action.type === UPDATE_NEW_DIALOG_MESSAGE){
-      this._state.staticText.dialogStaticText = action.updateMessageText;
-      this._renderEntireTree(this._state);
-    }
-    else if (action.type === SHOW_ALERT) {
-      alert(this._state.staticText.alertStaticText);
-      // alert('broken text, must be refactoring');
-    }
+
+    this._state.profilePage = PostReducer(this._state.profilePage, this._state.staticText, action);
+
+    this._state.todoPage = TodoReducer(this._state.todoPage, this._state.staticText, action);
+
+    this._renderEntireTree(this._state);
+
+    // if (action.type === ADD_NEW_DIALOG_MESSAGE){
+    //   let newDialogMessage ={
+    //     id: this.randomIdByTime() + 2,
+    //     personName: 'Luda',
+    //     whoWrite: 'you',
+    //     message: this._state.staticText.dialogStaticText,
+    //     timeSend: this.randomIdByTime(),
+    //   };
+    //   this._state.messagesPage.rowsChatDialogs.push(newDialogMessage);
+    //   this._state.staticText.dialogStaticText = '';
+    //   this._renderEntireTree(this._state);
+    // }
+    // else if (action.type === UPDATE_NEW_DIALOG_MESSAGE){
+    //   this._state.staticText.dialogStaticText = action.updateText;
+    //   this._renderEntireTree(this._state);
+    // }
+    // else if (action.type === SHOW_ALERT) {
+    //   alert(this._state.staticText.alertStaticText);
+    //   // alert('broken text, must be refactoring');
+    // }
+
   },
 
 };
 
-
-export const addNewPostActionCreator = (postText) => {
-  return {type: ADD_NEW_POST, newPostMessage: postText}
-};
-
-export const updateNewPostActionCreator = (changeNewText) => {
-  return {type: UPDATE_NEW_POST, updateText: changeNewText}
-};
-
-export const addNewTodoItemActionCreator = (todoText) => {
-  return {type: ADD_NEW_TODO_ITEM, newTodoText: todoText}
-};
-
-export const updateNewTodoItemActionCreator = (newTodoText) => {
-  return {type: UPDATE_NEW_TODO_ITEM, newTodoText: newTodoText}
-};
-
-export const addNewMessageTextActionCreator = (textMessage)=>{
-  return{type: ADD_NEW_DIALOG_MESSAGE, updateMessageText: textMessage }
+export const addNewMessageTextActionCreator = ()=>{
+  return{type: ADD_NEW_DIALOG_MESSAGE}
 };
 
 export const updateNewMessageTextActionCreator = (messageText)=>{
-  return{type: UPDATE_NEW_DIALOG_MESSAGE, updateMessageText: messageText }
+  return{type: UPDATE_NEW_DIALOG_MESSAGE, updateText: messageText }
 };
 
 export const showAlertActionType = () => ({type: 'SHOW_ALERT'}); //и так можно ретёрнить

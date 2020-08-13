@@ -9,17 +9,12 @@ const Dialogs = props => {
   let newMessageText = React.createRef();
 
   const addNewMessage = () => {
-    let textMessage = newMessageText.current.value;
-    props.dispatch(addNewMessageTextActionCreator(textMessage));
+    props.dispatch(addNewMessageTextActionCreator());
   };
 
   const onMessageChange = ()=>{
     let messageText = newMessageText.current.value;
     props.dispatch(updateNewMessageTextActionCreator(messageText));
-  };
-
-  const showTime = ()=>{
-    alert('hi')
   };
 
   return (
@@ -58,7 +53,6 @@ const Dialogs = props => {
               <textarea
                 name="newMassage"
                 placeholder="New massage"
-                ref={newMessageText}
                 value={props.appData.staticText.dialogStaticText}
                 onChange={onMessageChange}
               />
