@@ -1,9 +1,7 @@
 import PostReducer  from './reducers/postsReducer';
 import TodoReducer from "./reducers/todoReducer";
+import DialogsReducer from "./reducers/dialogsReducer";
 
-
-const ADD_NEW_DIALOG_MESSAGE = 'ADD_NEW_DIALOG_MESSAGE';
-const UPDATE_NEW_DIALOG_MESSAGE = 'UPDATE_NEW_DIALOG_MESSAGE';
 const SHOW_ALERT = 'SHOW_ALERT';
 
 
@@ -34,19 +32,19 @@ let store = {
         {id: 'ld5', name: 'Siky'}
       ],
       rowsChatDialogs: [
-        {id: 'cd1', personName: 'Luda', whoWrite: 'you', message: 'Hi', timeSend: '12352434'},
-        {id: 'cd2', personName: 'Bek', whoWrite: 'person', message: 'Hellow', timeSend: '12352434'},
-        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right', timeSend: '12352434'},
-        {id: 'cd4', personName: 'Luda', whoWrite: 'you', message: 'right 2', timeSend: '12352434'},
-        {id: 'cd5', personName: 'Bek', whoWrite: 'person', message: 'Hellow word', timeSend: '12352434'}
+        {id: 'cd1', personName: 'Luda', whoWrite: 'you', message: 'Hi', timeSend: 12334},
+        {id: 'cd2', personName: 'Bek', whoWrite: 'person', message: 'Hellow', timeSend: 12452434},
+        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right', timeSend: 127434},
+        {id: 'cd4', personName: 'Luda', whoWrite: 'you', message: 'right 2', timeSend: 92434},
+        {id: 'cd5', personName: 'Bek', whoWrite: 'person', message: 'Hellow word', timeSend: 19359432}
       ],
     },
     todoPage: {
       todoList: [
-        {title: 'Theme one', completed: false},
-        {title: 'Theme two', completed: false},
-        {title: 'Theme three', completed: true},
-        {title: 'Theme four', completed: false}
+        {id: 1,title: 'Theme one', completed: false},
+        {id: 2,title: 'Theme two', completed: false},
+        {id: 3,title: 'Theme three', completed: true},
+        {id: 4,title: 'Theme four', completed: false}
       ]
     },
     bestFriends: {
@@ -76,49 +74,14 @@ let store = {
   //   alert(this.getState().staticText.alertStaticText);
   // },
 
-  // addNewPost(newMessageText) {
-  //   let newPostItem = {
-  //     id: 'cp5',
-  //     name: 'Lipo',
-  //     age: 89,
-  //     message: newMessageText,
-  //     like: 3
-  //   };
-  //   this._state.profilePage.rowsPostsList.push(newPostItem);
-  //   this._state.staticText.postStaticText = '';
-  //   this._renderEntireTree(state);
-  // },
-
-  // updateNewPost(updateText) {
-  //   this._state.staticText.postStaticText = updateText;
-  //   this._renderEntireTree(state);
-  // },
-
-  // addNewTodoPoint(newTodoText) {
-  //   let newTodoItem = {
-  //     title: newTodoText,
-  //     completed: false,
-  //   };
-  //   this._state.todoPage.todoList.push(newTodoItem);
-  //   this._state.staticText.todoStaticText = '';
-  //   this._renderEntireTree(state);
-  // },
-
-  // updateNewTodoItem(updateText) {
-  //   this._state.staticText.todoStaticText = updateText;
-  //   this._renderEntireTree(state);
-  // },
-
-  randomIdByTime(){
-    let date = new Date();
-    return date.getTime();
-  },
 
   dispatch(action) {
 
     this._state.profilePage = PostReducer(this._state.profilePage, this._state.staticText, action);
 
     this._state.todoPage = TodoReducer(this._state.todoPage, this._state.staticText, action);
+
+    this._state.messagesPage = DialogsReducer(this._state.messagesPage, this._state.staticText, action);
 
     this._renderEntireTree(this._state);
 
@@ -145,14 +108,6 @@ let store = {
 
   },
 
-};
-
-export const addNewMessageTextActionCreator = ()=>{
-  return{type: ADD_NEW_DIALOG_MESSAGE}
-};
-
-export const updateNewMessageTextActionCreator = (messageText)=>{
-  return{type: UPDATE_NEW_DIALOG_MESSAGE, updateText: messageText }
 };
 
 export const showAlertActionType = () => ({type: 'SHOW_ALERT'}); //и так можно ретёрнить

@@ -2,19 +2,19 @@ import React from 'react';
 import "../../styles/dialogs.sass";
 import MessageItem from '../../components/dialogs/MessageItem';
 import DialogItem from '../../components/dialogs/DialogItem';
-import {addNewMessageTextActionCreator, updateNewMessageTextActionCreator } from '../../dataRedux/store';
+import {addNewMessageTextCreator, updateNewMessageTextCreator } from '../../dataRedux/reducers/dialogsReducer';
 
 const Dialogs = props => {
 
   let newMessageText = React.createRef();
 
   const addNewMessage = () => {
-    props.dispatch(addNewMessageTextActionCreator());
+    props.dispatch(addNewMessageTextCreator());
   };
 
   const onMessageChange = ()=>{
     let messageText = newMessageText.current.value;
-    props.dispatch(updateNewMessageTextActionCreator(messageText));
+    props.dispatch(updateNewMessageTextCreator(messageText));
   };
 
   return (
@@ -51,6 +51,7 @@ const Dialogs = props => {
           <div className="write-message __wrap">
             <div className="field-wrapper">
               <textarea
+                ref={newMessageText}
                 name="newMassage"
                 placeholder="New massage"
                 value={props.appData.staticText.dialogStaticText}

@@ -24,6 +24,7 @@ const TodoItem = props =>{
                     onChange={()=>setChecked(!checked)}
                 />
                 <span className="title_todo-item">{props.title}</span>
+                <span className="title_todo-item">{props.id}</span>
             </label>
             <button
               className="del_todo-item color-danger"

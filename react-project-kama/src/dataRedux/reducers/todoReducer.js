@@ -4,8 +4,14 @@ const DELETE_TODO_ITEM = 'DELETE_TODO_ITEM';
 
 const TodoReducer =(state, staticText , action) =>{
 
+  const randomIdByTime = () =>{
+    let date = new Date();
+    return date.getTime();
+  };
+
   if (action.type === ADD_NEW_TODO_ITEM) {
     let newTodoItem = {
+      id: randomIdByTime(),
       title: action.newTodoText,
       completed: false,
     };
@@ -16,7 +22,8 @@ const TodoReducer =(state, staticText , action) =>{
     staticText.todoStaticText = action.updateText;
   }
   else if (action.type === DELETE_TODO_ITEM){
-    state.todoList.splice(1);
+    // state.todoList.splice(1, 1);
+    alert('fix it')
   }
 
   return state;
