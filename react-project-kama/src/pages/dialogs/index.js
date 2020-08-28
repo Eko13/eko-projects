@@ -25,7 +25,7 @@ const Dialogs = props => {
       <div className="flex-wrapper">
 
         <div className="list-dialogs __wrap">
-          {props.appData.messagesPage.rowsListDialogs.map((ld, index) => (
+          {props.stateDialogs.rowsListDialogs.map((ld, index) => (
             <DialogItem
               key={`LIST_DIALOGS_ITEM_${index}`}
               name={ld.name}
@@ -36,7 +36,7 @@ const Dialogs = props => {
         <div className="chat-dialogs __wrap">
 
           <div className="messages-dialogs __wrap">
-            {props.appData.messagesPage.rowsChatDialogs.map((cd, index) => (
+            {props.stateDialogs.rowsChatDialogs.map((cd, index) => (
               <MessageItem
                 key={`CHAT_DIALOGS_ITEM_${index}`}
                 name={cd.personName}
@@ -54,7 +54,7 @@ const Dialogs = props => {
                 ref={newMessageText}
                 name="newMassage"
                 placeholder="New massage"
-                value={props.appData.staticText.dialogStaticText}
+                value={props.stateDialogs.chatFieldText}
                 onChange={onMessageChange}
               />
               <button

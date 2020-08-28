@@ -16,7 +16,6 @@ const HomePage = props => {
 
             <Posts
               statePosts={props.appData.profilePage}
-              staticText={props.appData.staticText}
               dispatch={props.dispatch}
             />
 

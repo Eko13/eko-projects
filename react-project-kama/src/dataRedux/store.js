@@ -77,34 +77,13 @@ let store = {
 
   dispatch(action) {
 
-    this._state.profilePage = PostReducer(this._state.profilePage, this._state.staticText, action);
+    this._state.profilePage = PostReducer(this._state.profilePage, action, this._state.staticText );
 
-    this._state.todoPage = TodoReducer(this._state.todoPage, this._state.staticText, action);
+    this._state.todoPage = TodoReducer(this._state.todoPage, action, this._state.staticText);
 
-    this._state.messagesPage = DialogsReducer(this._state.messagesPage, this._state.staticText, action);
+    this._state.messagesPage = DialogsReducer(this._state.messagesPage, action, this._state.staticText);
 
     this._renderEntireTree(this._state);
-
-    // if (action.type === ADD_NEW_DIALOG_MESSAGE){
-    //   let newDialogMessage ={
-    //     id: this.randomIdByTime() + 2,
-    //     personName: 'Luda',
-    //     whoWrite: 'you',
-    //     message: this._state.staticText.dialogStaticText,
-    //     timeSend: this.randomIdByTime(),
-    //   };
-    //   this._state.messagesPage.rowsChatDialogs.push(newDialogMessage);
-    //   this._state.staticText.dialogStaticText = '';
-    //   this._renderEntireTree(this._state);
-    // }
-    // else if (action.type === UPDATE_NEW_DIALOG_MESSAGE){
-    //   this._state.staticText.dialogStaticText = action.updateText;
-    //   this._renderEntireTree(this._state);
-    // }
-    // else if (action.type === SHOW_ALERT) {
-    //   alert(this._state.staticText.alertStaticText);
-    //   // alert('broken text, must be refactoring');
-    // }
 
   },
 

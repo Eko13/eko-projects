@@ -6,30 +6,32 @@ import {addNewPostActionCreator, updateNewPostActionCreator }from '../../../data
 
 const Posts = props => {
 
-  let newTextText = React.createRef();
+  let newPostMessage = React.createRef();
+
 
   const addPost = () => {
-    let postText = newTextText.current.value;
+    let postText = newPostMessage.current.value;
     props.dispatch(addNewPostActionCreator(postText));
   };
 
-  const onPostChange = (e) => {
-    let changeNewText = newTextText.current.value;
+  const onPostChange = () => {
+    let changeNewText = newPostMessage.current.value;
     let action = updateNewPostActionCreator(changeNewText);
     props.dispatch(action);
   };
 
   const addPostOnButton = () => {
-    if (props.staticText.postStaticText !== '') {
+    if (props.statePosts.postFieldText !== '') {
       addPost();
     }
   };
 
   const addPostOnPress = event => {
-    if (event.key === "Enter" && props.staticText.postStaticText !== '') {
+    if (event.key === "Enter" && props.statePosts.postFieldText !== '') {
       addPost();
     }
   };
+
 
   return (
     <div className="posts-wrapper">
@@ -41,8 +43,8 @@ const Posts = props => {
             className="add-post-field"
             placeholder="message"
             id="new-post-text"
-            ref={newTextText}
-            value={props.staticText.postStaticText}
+            ref={newPostMessage}
+            value={props.statePosts.postFieldText}
             onChange={onPostChange}
             onKeyPress={addPostOnPress}
           />

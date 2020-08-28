@@ -2,9 +2,19 @@ const ADD_NEW_TODO_ITEM = 'ADD_NEW_TODO_ITEM';
 const UPDATE_NEW_TODO_ITEM = 'UPDATE_NEW_TODO_ITEM';
 const DELETE_TODO_ITEM = 'DELETE_TODO_ITEM';
 
-const TodoReducer =(state, staticText , action) =>{
+let initialState = {
+  rowTodoList: [
+    {id: 1, title: 'Theme one 1', completed: false},
+    {id: 2, title: 'Theme two 2', completed: false},
+    {id: 3, title: 'Theme three 3', completed: true},
+    {id: 4, title: 'Theme four 4', completed: false}
+  ],
+  todoFieldText: 'Todo placeholder 123'
+};
 
-  const randomIdByTime = () =>{
+const TodoReducer = (state = initialState, action) => {
+
+  const randomIdByTime = () => {
     let date = new Date();
     return date.getTime();
   };
@@ -15,14 +25,11 @@ const TodoReducer =(state, staticText , action) =>{
       title: action.newTodoText,
       completed: false,
     };
-    state.todoList.push(newTodoItem);
-    staticText.todoStaticText = '';
-  }
-  else if (action.type === UPDATE_NEW_TODO_ITEM) {
-    staticText.todoStaticText = action.updateText;
-  }
-  else if (action.type === DELETE_TODO_ITEM){
-    // state.todoList.splice(1, 1);
+    state.rowTodoList.push(newTodoItem);
+    state.todoFieldText = '';
+  } else if (action.type === UPDATE_NEW_TODO_ITEM) {
+    state.todoFieldText = action.updateText;
+  } else if (action.type === DELETE_TODO_ITEM) {
     alert('fix it')
   }
 
@@ -38,7 +45,7 @@ export const updateNewTodoItemActionCreator = (newTodoText) => {
   return {type: UPDATE_NEW_TODO_ITEM, updateText: newTodoText}
 };
 
-export const deleteTodoItemActionCreator = () =>{
+export const deleteTodoItemActionCreator = () => {
   return {type: DELETE_TODO_ITEM}
 };
 

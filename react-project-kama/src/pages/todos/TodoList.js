@@ -5,7 +5,6 @@ import {addNewTodoItemActionCreator, updateNewTodoItemActionCreator} from '../..
 
 const TodoList = props => {
 
-  const [todoRow, setTodoRow] = useState(props.stateTodo.todoList);
 
   const newTodoTitle = React.createRef();
 
@@ -22,13 +21,13 @@ const TodoList = props => {
   };
 
   const addTodoOnButton = () => {
-    if (props.staticText.todoStaticText !== '') {
+    if (props.stateTodo.todoFieldText !== '') {
       addTodo();
     }
   };
 
   const addTodoPress = event => {
-    if (event.key === "Enter" && props.staticText.todoStaticText !== '') {
+    if (event.key === "Enter" && props.stateTodo.todoFieldText !== '') {
       addTodo();
     }
   };
@@ -41,7 +40,7 @@ const TodoList = props => {
       <input
         ref={newTodoTitle}
         type="text"
-        value={props.staticText.todoStaticText}
+        value={props.stateTodo.todoFieldText}
         placeholder="Enter todo point"
         onChange={onTodoChange}
         onKeyPress={addTodoPress}
@@ -54,7 +53,7 @@ const TodoList = props => {
       </button>
 
       <ul className="todo-list">
-        {todoRow.map((tl, index) => (
+        {props.stateTodo.rowTodoList.map((tl, index) => (
           <TodoItem
             key={`TODO_LIST_ITEM_${index}`}
             {...tl}

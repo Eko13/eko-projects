@@ -39,7 +39,7 @@ const App = props => {
             <Route path="/dialogs"
               render={() =>
                 <Dialogs
-                  appData={props.appData}
+                  stateDialogs={props.appData.messagesPage}
                   dispatch={props.dispatch}
                 />
               }
@@ -59,7 +59,6 @@ const App = props => {
               render={
                 () => <TodoList
                   stateTodo={props.appData.todoPage}
-                  staticText={props.appData.staticText}
                   dispatch={props.dispatch}
                 />
               }
