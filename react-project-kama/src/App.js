@@ -14,7 +14,7 @@ import Music from "./pages/music";
 import Settings from "./pages/settings";
 import Sidebar from "./components/sidebar/Sidebar";
 import Header from "./components/header/Header";
-import TodoList from "./pages/todos/TodoList";
+import TodoListContainer from "./pages/todos/TodoListContainer";
 
 const App = props => {
 
@@ -23,12 +23,16 @@ const App = props => {
       <div className="App">
         <div className="main-wrapper">
           <div className="sidebar-wrapper">
+
             <Sidebar/>
+
           </div>
           <div className="content-wrapper">
+
             <Header/>
 
-            <Route path="/home"
+            <Route
+              path="/home"
               render={() =>
                 <HomePage
                   appData={props.appData}
@@ -36,7 +40,8 @@ const App = props => {
                 />
               }
             />
-            <Route path="/dialogs"
+            <Route
+              path="/dialogs"
               render={() =>
                 <Dialogs
                   stateDialogs={props.appData.messagesPage}
@@ -44,7 +49,8 @@ const App = props => {
                 />
               }
             />
-            <Route path="/news"
+            <Route
+              path="/news"
               render={()=>
                 <News
                   // appStore={props.appStore}
@@ -53,11 +59,18 @@ const App = props => {
                 />
               }
             />
-            <Route path="/music" component={Music}/>
-            <Route path="/settings" component={Settings}/>
-            <Route path="/todo"
+            <Route
+              path="/music"
+              component={Music}
+            />
+            <Route
+              path="/settings"
+              component={Settings}
+            />
+            <Route
+              path="/todo"
               render={
-                () => <TodoList
+                () => <TodoListContainer
                   stateTodo={props.appData.todoPage}
                   dispatch={props.dispatch}
                 />

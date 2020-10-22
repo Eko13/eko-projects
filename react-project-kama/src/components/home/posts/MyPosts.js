@@ -1,27 +1,23 @@
 import React from "react";
 import "../../../styles/posts.sass";
 import PostItem from './PostItem'
-import {addNewPostActionCreator, updateNewPostActionCreator }from '../../../dataRedux/reducers/postsReducer';
 
-
-const Posts = props => {
+const MyPosts = props => {
 
   let newPostMessage = React.createRef();
 
-
   const addPost = () => {
     let postText = newPostMessage.current.value;
-    props.dispatch(addNewPostActionCreator(postText));
+    props.addPost(postText);
   };
 
   const onPostChange = () => {
-    let changeNewText = newPostMessage.current.value;
-    let action = updateNewPostActionCreator(changeNewText);
-    props.dispatch(action);
+    let changePostField = newPostMessage.current.value;
+    props.postChange(changePostField);
   };
 
-  const addPostOnButton = () => {
-    if (props.statePosts.postFieldText !== '') {
+  const addPostOnButton = (event) => {
+    if ( props.statePosts.postFieldText !== ''){
       addPost();
     }
   };
@@ -31,7 +27,6 @@ const Posts = props => {
       addPost();
     }
   };
-
 
   return (
     <div className="posts-wrapper">
@@ -61,7 +56,7 @@ const Posts = props => {
         {
           props.statePosts.rowsPostsList.map((cp, index) => (
             <PostItem
-              key={`POST__ITEM_${index}`}
+              key={cp.id}
               {...cp}
             />
           ))
@@ -72,4 +67,4 @@ const Posts = props => {
 
 };
 
-export default Posts;
+export default MyPosts;

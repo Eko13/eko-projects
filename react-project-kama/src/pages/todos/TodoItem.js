@@ -11,8 +11,8 @@ const TodoItem = props =>{
         cls.push(' ','checked')
     }
 
-    const onDeleteItem = () =>{
-      props.dispatch(deleteTodoItemActionCreator());
+    const deleteItem = () =>{
+      props.deleteItem();
     };
 
     return(
@@ -28,7 +28,7 @@ const TodoItem = props =>{
             </label>
             <button
               className="del_todo-item color-danger"
-              onClick={onDeleteItem}
+              onClick={deleteItem}
             >
               delete
             </button>

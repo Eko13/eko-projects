@@ -1,23 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TodoItem from "./TodoItem";
-import {addNewTodoItemActionCreator, updateNewTodoItemActionCreator} from '../../dataRedux/reducers/todoReducer';
 
 
 const TodoList = props => {
-
 
   const newTodoTitle = React.createRef();
 
   const addTodo = () => {
     let todoText = newTodoTitle.current.value;
-    // props.appStore.addNewTodoPoint(todoText);
-    props.dispatch(addNewTodoItemActionCreator(todoText));
+    props.addNewTodo(todoText);
   };
 
   const onTodoChange = () => {
     let newTodoText = newTodoTitle.current.value;
-    // props.appStore.updateNewTodoItem(newTodoText);
-    props.dispatch(updateNewTodoItemActionCreator(newTodoText));
+    props.todoChange(newTodoText);
   };
 
   const addTodoOnButton = () => {
@@ -58,6 +54,7 @@ const TodoList = props => {
             key={`TODO_LIST_ITEM_${index}`}
             {...tl}
             dispatch={props.dispatch}
+            deleteItem={props.deleteItem}
           />
         ))}
       </ul>

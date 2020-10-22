@@ -9,7 +9,7 @@ const PostItem = (props)=>{
             {props.message}
             <div className="like-wrap">
                 <span className="like-post">{props.like}</span>
-                <i>likes</i>
+                <button>likes</button>
             </div>
         </li>
     )

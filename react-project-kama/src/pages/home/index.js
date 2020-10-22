@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from "../../components/home/banner/Banner";
 import Account from "../../components/home/account/Account";
-import Posts from "../../components/home/posts/Posts";
+import MyPostsContainer from "../../components/home/posts/MyPostsContainer";
 
 import "../../styles/home.sass"
 
@@ -14,7 +14,7 @@ const HomePage = props => {
 
             <Account/>
 
-            <Posts
+            <MyPostsContainer
               statePosts={props.appData.profilePage}
               dispatch={props.dispatch}
             />
