@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87ac1314-9d2c-4a90-a692-88c95248141f" name="Default Changelist" comment="" />
+    <list default="true" id="87ac1314-9d2c-4a90-a692-88c95248141f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/react-project-kama/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-project-kama/src/App.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +76,7 @@
       <workItem from="1598533133460" duration="25839000" />
       <workItem from="1603361682575" duration="4097000" />
       <workItem from="1603448567764" duration="662000" />
-      <workItem from="1604403529691" duration="1999000" />
+      <workItem from="1604403529691" duration="2356000" />
     </task>
     <servers />
   </component>

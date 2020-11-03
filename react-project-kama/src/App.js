@@ -44,6 +44,7 @@ const App = props => {
                 />
               }
             />
+
             <Route path="/news"
               render={()=>
                 <News
