@@ -1,6 +1,12 @@
 import React from 'react';
+import {showAlertActionType} from '../../dataRedux/store';
 
 const News = (props) => {
+
+
+  const callAlert=()=>{
+    props.dispatch(showAlertActionType)
+  };
 
   return (
     <div className="news-wrapper">
@@ -8,7 +14,7 @@ const News = (props) => {
 
       <div>
         <button
-          onClick={() => props.dispatch({type:'SHOW_ALERT'})}
+          onClick={callAlert}
         >
           Click me to see alert
         </button>

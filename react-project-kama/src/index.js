@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from './dataRedux/store';
+import store from './dataRedux/redux-store';
+import storeDefault from './dataRedux/store';
+
 
 let renderEntireTreeIndex = (appState) =>{
+
   ReactDOM.render(
     <App
       appData={appState}
@@ -17,8 +20,10 @@ let renderEntireTreeIndex = (appState) =>{
 
 renderEntireTreeIndex(store.getState());
 
-
-store.renderAppSubscribe(renderEntireTreeIndex);
+store.subscribe(() => {
+  let state = store.getState();
+  renderEntireTreeIndex(state);
+});
 
 
 // If you want your app to work offline and load faster, you can change

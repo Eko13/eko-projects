@@ -1,31 +1,33 @@
 import React from "react";
 import "../../../styles/posts.sass";
 import PostItem from './PostItem'
+import {addNewPostActionCreator, updateNewPostActionCreator }from '../../../dataRedux/reducers/postsReducer';
+
 
 const Posts = props => {
 
-  let newPostTitle = React.createRef();
+  let newPostMessage = React.createRef();
+
 
   const addPost = () => {
-    let postText = newPostTitle.current.value;
-    // props.appStore.addNewPost(postText);
-    props.dispatch({type:'ADD_NEW_POST', newPostMessage: postText});
+    let postText = newPostMessage.current.value;
+    props.dispatch(addNewPostActionCreator(postText));
   };
 
   const onPostChange = () => {
-    let changeNewText = newPostTitle.current.value;
-    // // props.updateNewPost(changeNewText);
-    props.dispatch({type:'UPDATE_NEW_POST', updateText: changeNewText});
+    let changeNewText = newPostMessage.current.value;
+    let action = updateNewPostActionCreator(changeNewText);
+    props.dispatch(action);
   };
 
-  const addPostOnButton = ()=>{
-    if(props.staticText.postStaticText !== ''){
+  const addPostOnButton = () => {
+    if (props.statePosts.postFieldText !== '') {
       addPost();
     }
   };
 
-  const addPostOnPress = event =>{
-    if(event.key === "Enter" && props.staticText.postStaticText !== ''){
+  const addPostOnPress = event => {
+    if (event.key === "Enter" && props.statePosts.postFieldText !== '') {
       addPost();
     }
   };
@@ -40,15 +42,17 @@ const Posts = props => {
           <textarea
             className="add-post-field"
             placeholder="message"
-            ref={newPostTitle}
             id="new-post-text"
-            value={props.staticText.postStaticText}
+            ref={newPostMessage}
+            value={props.statePosts.postFieldText}
             onChange={onPostChange}
             onKeyPress={addPostOnPress}
           />
-          <button className="btn"
-                  onClick={addPostOnButton}
-          >Add Post
+          <button
+            className="btn"
+            onClick={addPostOnButton}
+          >
+            Add Post
           </button>
         </div>
       </div>

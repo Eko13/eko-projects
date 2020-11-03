@@ -2,19 +2,19 @@ import React from 'react';
 import "../../styles/dialogs.sass";
 import MessageItem from '../../components/dialogs/MessageItem';
 import DialogItem from '../../components/dialogs/DialogItem';
-
+import {addNewMessageTextCreator, updateNewMessageTextCreator } from '../../dataRedux/reducers/dialogsReducer';
 
 const Dialogs = props => {
 
   let newMessageText = React.createRef();
 
   const addNewMessage = () => {
-    let textMessage = newMessageText.current.value;
-    if(textMessage !== ''){
-      alert(textMessage);
-    }else{
-      alert('Нельзя')
-    }
+    props.dispatch(addNewMessageTextCreator());
+  };
+
+  const onMessageChange = ()=>{
+    let messageText = newMessageText.current.value;
+    props.dispatch(updateNewMessageTextCreator(messageText));
   };
 
   return (
@@ -23,7 +23,8 @@ const Dialogs = props => {
       <h2>Dialogs</h2>
 
       <div className="flex-wrapper">
-        <div className="list-dialogs_wrap">
+
+        <div className="list-dialogs __wrap">
           {props.stateDialogs.rowsListDialogs.map((ld, index) => (
             <DialogItem
               key={`LIST_DIALOGS_ITEM_${index}`}
@@ -33,32 +34,37 @@ const Dialogs = props => {
         </div>
 
         <div className="chat-dialogs __wrap">
-          <div className="chat-dialogs __inner-wrap">
+
+          <div className="messages-dialogs __wrap">
             {props.stateDialogs.rowsChatDialogs.map((cd, index) => (
               <MessageItem
                 key={`CHAT_DIALOGS_ITEM_${index}`}
                 name={cd.personName}
                 message={cd.message}
+                timeSend={cd.timeSend}
                 id={cd.id}
                 position={cd.whoWrite}
               />
             ))}
           </div>
-          <div className="write-message__block">
+
+          <div className="write-message __wrap">
             <div className="field-wrapper">
-            <textarea
-              name="newMassage"
-              placeholder="New massage"
-              ref={newMessageText}
-            />
+              <textarea
+                ref={newMessageText}
+                name="newMassage"
+                placeholder="New massage"
+                value={props.stateDialogs.chatFieldText}
+                onChange={onMessageChange}
+              />
               <button
                 className="btn"
                 onClick={addNewMessage}
-              >Send Message
+              >
+                Send Message
               </button>
             </div>
-        </div>
-
+          </div>
 
         </div>
 

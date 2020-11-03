@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import { deleteTodoItemActionCreator } from './../../dataRedux/reducers/todoReducer';
 
 const TodoItem = props =>{
 
@@ -11,6 +11,10 @@ const TodoItem = props =>{
         cls.push(' ','checked')
     }
 
+    const onDeleteItem = () =>{
+      props.dispatch(deleteTodoItemActionCreator());
+    };
+
     return(
         <li className="todo-item">
             <label className={cls.join('')}>
@@ -20,8 +24,14 @@ const TodoItem = props =>{
                     onChange={()=>setChecked(!checked)}
                 />
                 <span className="title_todo-item">{props.title}</span>
+                <span className="title_todo-item">{props.id}</span>
             </label>
-            <i className="del_todo-item color-danger">delete</i>
+            <button
+              className="del_todo-item color-danger"
+              onClick={onDeleteItem}
+            >
+              delete
+            </button>
         </li>
     )
 

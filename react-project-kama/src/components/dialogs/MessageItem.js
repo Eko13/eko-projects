@@ -16,7 +16,11 @@ const MessageItem = props => {
       <div className={`${props.position}` + ' ' + 'item-chat __wrap'}>
         <div className="item-chat __inner-wrap">
           <div className="item-chat __info">
-            <h5>{props.name}</h5>
+            <h5 className="name">{props.name}</h5>
+            <span className="time">{props.timeSend}</span>
+          </div>
+          <div>
+            Message id: {props.id}
           </div>
           <div className="item-chat __message-wrap">
             <p>{props.message}</p>

@@ -1,4 +1,9 @@
-import state from './state';
+import PostReducer  from './reducers/postsReducer';
+import TodoReducer from "./reducers/todoReducer";
+import DialogsReducer from "./reducers/dialogsReducer";
+
+const SHOW_ALERT = 'SHOW_ALERT';
+
 
 let store = {
 
@@ -6,7 +11,8 @@ let store = {
     seeText: 'seeText in state',
     staticText: {
       todoStaticText: 'Static Todo text',
-      postStaticText: 'Static Post text1',
+      postStaticText: 'Static Post text',
+      dialogStaticText: 'Chat static text',
       alertStaticText: "Hi man, I'm from STORE/staticText/alertStaticText",
     },
     profilePage: {
@@ -26,19 +32,19 @@ let store = {
         {id: 'ld5', name: 'Siky'}
       ],
       rowsChatDialogs: [
-        {id: 'cd1', personName: 'Luda', whoWrite: 'you', message: 'Hi'},
-        {id: 'cd2', personName: 'Bek', whoWrite: 'person', message: 'Hellow'},
-        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right'},
-        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right 2'},
-        {id: 'cd4', personName: 'Bek', whoWrite: 'person', message: 'Hellow word'}
-      ]
+        {id: 'cd1', personName: 'Luda', whoWrite: 'you', message: 'Hi', timeSend: 12334},
+        {id: 'cd2', personName: 'Bek', whoWrite: 'person', message: 'Hellow', timeSend: 12452434},
+        {id: 'cd3', personName: 'Luda', whoWrite: 'you', message: 'right', timeSend: 127434},
+        {id: 'cd4', personName: 'Luda', whoWrite: 'you', message: 'right 2', timeSend: 92434},
+        {id: 'cd5', personName: 'Bek', whoWrite: 'person', message: 'Hellow word', timeSend: 19359432}
+      ],
     },
     todoPage: {
       todoList: [
-        {title: 'Theme one', completed: false},
-        {title: 'Theme two', completed: false},
-        {title: 'Theme three', completed: true},
-        {title: 'Theme four', completed: false}
+        {id: 1,title: 'Theme one', completed: false},
+        {id: 2,title: 'Theme two', completed: false},
+        {id: 3,title: 'Theme three', completed: true},
+        {id: 4,title: 'Theme four', completed: false}
       ]
     },
     bestFriends: {
@@ -60,85 +66,30 @@ let store = {
     return this._state;
   },
 
-  // showAlert() {
-  //   alert(this.getState().staticText.alertStaticText);
-  // },
-
   renderAppSubscribe(observer) {
     this._renderEntireTree = observer;
   },
 
-  //
-  // addNewPost(newMessageText) {
-  //   let newPostItem = {
-  //     id: 'cp5',
-  //     name: 'Lipo',
-  //     age: 89,
-  //     message: newMessageText,
-  //     like: 3
-  //   };
-  //   this._state.profilePage.rowsPostsList.push(newPostItem);
-  //   this._state.staticText.postStaticText = '';
-  //   this._renderEntireTree(state);
-  // },
-  //
-  // updateNewPost(updateText) {
-  //   this._state.staticText.postStaticText = updateText;
-  //   this._renderEntireTree(state);
-  // },
-  //
-  // addNewTodoPoint(newTodoText) {
-  //   let newTodoItem = {
-  //     title: newTodoText,
-  //     completed: false,
-  //   };
-  //   this._state.todoPage.todoList.push(newTodoItem);
-  //   this._state.staticText.todoStaticText = '';
-  //   this._renderEntireTree(state);
-  // },
-  //
-  // updateNewTodoItem(updateText) {
-  //   this._state.staticText.todoStaticText = updateText;
-  //   this._renderEntireTree(state);
+  // showAlert() {
+  //   alert(this.getState().staticText.alertStaticText);
   // },
 
+
   dispatch(action) {
-    if (action.type === 'ADD_NEW_POST') {
-      let newPostItem = {
-        id: 'cp5',
-        name: 'Lipo',
-        age: 89,
-        message: action.newPostMessage,
-        like: 3
-      };
-      this._state.profilePage.rowsPostsList.push(newPostItem);
-      this._state.staticText.postStaticText = '';
-      this._renderEntireTree(this._state);
-    }
-    else if (action.type === 'UPDATE_NEW_POST') {
-      this._state.staticText.postStaticText = action.updateText;
-      this._renderEntireTree(this._state);
-    }
-    else if (action.type === 'ADD_NEW_TODO_ITEM') {
-      let newTodoItem = {
-        title: action.newTodoText,
-        completed: false,
-      };
-      this._state.todoPage.todoList.push(newTodoItem);
-      this._state.staticText.todoStaticText = '';
-      this._renderEntireTree(this._state);
-    }
-    else if(action.type === 'UPDATE_NEW_TODO_ITEM'){
-      this._state.staticText.todoStaticText = action.updateText;
-      this._renderEntireTree(this._state);
-    }
-    else if(action.type === 'SHOW_ALERT'){
-      alert(this._state.staticText.alertStaticText);
-      // alert('broken text, must be refactoring');
-    }
+
+    this._state.profilePage = PostReducer(this._state.profilePage, action, this._state.staticText );
+
+    this._state.todoPage = TodoReducer(this._state.todoPage, action, this._state.staticText);
+
+    this._state.messagesPage = DialogsReducer(this._state.messagesPage, action, this._state.staticText);
+
+    this._renderEntireTree(this._state);
+
   },
 
 };
+
+export const showAlertActionType = () => ({type: 'SHOW_ALERT'}); //и так можно ретёрнить
 
 export default store;
 

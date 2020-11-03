@@ -1,32 +1,33 @@
 import React, {useState} from 'react';
 import TodoItem from "./TodoItem";
+import {addNewTodoItemActionCreator, updateNewTodoItemActionCreator} from '../../dataRedux/reducers/todoReducer';
+
 
 const TodoList = props => {
 
-  const [todoRow, setTodoRow] = useState(props.stateTodo.todoList);
 
   const newTodoTitle = React.createRef();
 
   const addTodo = () => {
     let todoText = newTodoTitle.current.value;
     // props.appStore.addNewTodoPoint(todoText);
-    props.dispatch({type: 'ADD_NEW_TODO_ITEM', newTodoText: todoText});
+    props.dispatch(addNewTodoItemActionCreator(todoText));
   };
 
   const onTodoChange = () => {
     let newTodoText = newTodoTitle.current.value;
     // props.appStore.updateNewTodoItem(newTodoText);
-    props.dispatch({type: 'UPDATE_NEW_TODO_ITEM', updateText: newTodoText});
+    props.dispatch(updateNewTodoItemActionCreator(newTodoText));
   };
 
   const addTodoOnButton = () => {
-    if (props.staticText.todoStaticText !== '') {
+    if (props.stateTodo.todoFieldText !== '') {
       addTodo();
     }
   };
 
   const addTodoPress = event => {
-    if (event.key === "Enter" && props.staticText.todoStaticText !== '') {
+    if (event.key === "Enter" && props.stateTodo.todoFieldText !== '') {
       addTodo();
     }
   };
@@ -39,7 +40,7 @@ const TodoList = props => {
       <input
         ref={newTodoTitle}
         type="text"
-        value={props.staticText.todoStaticText}
+        value={props.stateTodo.todoFieldText}
         placeholder="Enter todo point"
         onChange={onTodoChange}
         onKeyPress={addTodoPress}
@@ -52,12 +53,13 @@ const TodoList = props => {
       </button>
 
       <ul className="todo-list">
-        {todoRow.map((tl, index) => (
+        {props.stateTodo.rowTodoList.map((tl, index) => (
           <TodoItem
             key={`TODO_LIST_ITEM_${index}`}
-            {...tl}/>
+            {...tl}
+            dispatch={props.dispatch}
+          />
         ))}
-
       </ul>
     </div>
   )

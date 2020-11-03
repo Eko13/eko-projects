@@ -40,6 +40,7 @@ const App = props => {
               render={() =>
                 <Dialogs
                   stateDialogs={props.appData.messagesPage}
+                  dispatch={props.dispatch}
                 />
               }
             />
@@ -58,7 +59,6 @@ const App = props => {
               render={
                 () => <TodoList
                   stateTodo={props.appData.todoPage}
-                  staticText={props.appData.staticText}
                   dispatch={props.dispatch}
                 />
               }
