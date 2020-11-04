@@ -27,7 +27,6 @@ const App = props => {
           </div>
           <div className="content-wrapper">
             <Header/>
-
             <Route path="/home"
               render={() =>
                 <HomePage
