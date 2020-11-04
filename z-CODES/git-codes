@@ -1,4 +1,3 @@
 ************ CODES ************
 
-sudo rm -rf .idea 		    (удаляет .idea)
 sudo -u postgres psql 		(ищет локальную версию psql)

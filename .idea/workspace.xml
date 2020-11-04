@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87ac1314-9d2c-4a90-a692-88c95248141f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/react-project-kama/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-project-kama/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/eko-projects.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z-CODES/01-JS-theory" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z-CODES/01-React-theory" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/z-CODES/docker-codes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/z-CODES/git-codes" beforeDir="false" afterPath="$PROJECT_DIR$/z-CODES/git-codes" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +35,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -76,7 +84,8 @@
       <workItem from="1598533133460" duration="25839000" />
       <workItem from="1603361682575" duration="4097000" />
       <workItem from="1603448567764" duration="662000" />
-      <workItem from="1604403529691" duration="2356000" />
+      <workItem from="1604403529691" duration="4286000" />
+      <workItem from="1604481086869" duration="1316000" />
     </task>
     <servers />
   </component>
@@ -101,15 +110,19 @@
       <screen x="50" y="159" width="1316" height="741" />
     </state>
     <state x="212" y="159" key="#com.intellij.execution.impl.EditConfigurationsDialog/50.159.1316.741/1366.0.1600.900@50.159.1316.741" timestamp="1598538876931" />
+    <state x="2068" y="346" width="525" height="401" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604406788239">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2068" y="346" width="525" height="401" key="#com.intellij.fileTypes.FileTypeChooser/50.339.1316.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1604406788239" />
     <state x="150" y="439" width="1116" height="541" key="DiffContextDialog" timestamp="1604403620258">
       <screen x="50" y="339" width="1316" height="741" />
     </state>
     <state x="150" y="439" width="1116" height="541" key="DiffContextDialog/50.339.1316.741/1366.0.1920.1080@50.339.1316.741" timestamp="1604403620258" />
-    <state x="491" y="467" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603448628384">
+    <state x="491" y="467" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604463567103">
       <screen x="50" y="339" width="1316" height="741" />
     </state>
     <state x="491" y="287" width="424" height="491" key="FileChooserDialogImpl/50.159.1316.741/1366.0.1600.900@50.159.1316.741" timestamp="1596600931122" />
-    <state x="491" y="467" key="FileChooserDialogImpl/50.339.1316.741/1366.0.1920.1080@50.339.1316.741" timestamp="1603448628384" />
+    <state x="491" y="467" width="424" height="491" key="FileChooserDialogImpl/50.339.1316.741/1366.0.1920.1080@50.339.1316.741" timestamp="1604463567103" />
     <state width="1295" height="425" key="GridCell.Tab.0.bottom" timestamp="1598791910763">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
