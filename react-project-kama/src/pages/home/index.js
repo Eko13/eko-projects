@@ -19,6 +19,10 @@ const HomePage = props => {
               dispatch={props.dispatch}
             />
 
+            <div>
+              red
+            </div>
+
         </div>
     )
 
