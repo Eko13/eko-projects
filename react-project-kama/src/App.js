@@ -1,29 +1,29 @@
 import React from 'react';
-import './assets/styles/App.css';
-import './assets/styles/App.sass';
+import './App.scss';
 
 import {
   BrowserRouter as Router,
   Route
 } from "react-router-dom";
 
-import HomePage from './pages/home';
-import Dialogs from "./pages/dialogs";
-import Sidebar from "./components/sidebar/Sidebar";
-import Header from "./components/header/Header";
-import TodoListContainer from "./pages/todos/TodoListContainer";
+import Header from "./components/segments/header/Header";
+import Sidebar from "./components/segments/sidebar/Sidebar";
+import Footer from "./components/segments/footer/Footer";
+import HomePage from './pages/homePage/HomePage';
+import Dialogs from "./pages/dialogsPage/DialogsPage";
+import TodoPage from "./pages/todoPage/TodoPage";
+import {MainBanner} from "./components/segments/banner/MainBanner";
 
-const App = props => {
+const App = (props) => {
 
   return (
     <Router>
       <div className="main__wrapper">
+        <MainBanner />
         <Sidebar/>
-
         <Header/>
 
         <div className="content__wrapper">
-
           <Route
             path="/home"
             render={() =>
@@ -45,14 +45,15 @@ const App = props => {
           <Route
             path="/todo"
             render={() =>
-              <TodoListContainer
+              <TodoPage
                 stateTodo={props.appData.todoPage}
                 dispatch={props.dispatch}
               />
             }
           />
-
         </div>
+
+        <Footer />
       </div>
     </Router>
   )
