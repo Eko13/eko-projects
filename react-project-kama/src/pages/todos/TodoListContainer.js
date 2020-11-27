@@ -24,12 +24,14 @@ const TodoListContainer = props => {
   };
 
   return (
-    <TodoList
-      stateTodo={props.stateTodo}
-      addNewTodo={onAddNewTodo}
-      todoChange={onTodoChange}
-      deleteItem={onDeleteItem}
-    />
+    <div className="toDo-page__wrapper page__wrapper">
+      <TodoList
+        stateTodo={props.stateTodo}
+        addNewTodo={onAddNewTodo}
+        todoChange={onTodoChange}
+        deleteItem={onDeleteItem}
+      />
+    </div>
   )
 };
 

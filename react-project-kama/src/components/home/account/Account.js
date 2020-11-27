@@ -1,5 +1,5 @@
 import React from "react";
-import '../../../styles/account.sass';
+import '../../../assets/styles/modules/account.sass';
 
 const Account = () =>{
   return(

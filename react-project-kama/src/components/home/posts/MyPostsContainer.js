@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/posts.sass";
+import "../../../assets/styles/modules/posts.sass";
 import {addNewPostActionCreator, updateNewPostActionCreator }from '../../../dataRedux/reducers/postsReducer';
 import MyPosts from "./MyPosts";
 

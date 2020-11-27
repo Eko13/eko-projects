@@ -29,8 +29,7 @@ const TodoList = props => {
   };
 
   return (
-    <div className="todo-wrapper page-wrapper">
-
+    <>
       <h2>Todo list</h2>
 
       <input
@@ -58,7 +57,7 @@ const TodoList = props => {
           />
         ))}
       </ul>
-    </div>
+    </>
   )
 };
 

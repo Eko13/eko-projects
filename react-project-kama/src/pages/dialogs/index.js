@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/dialogs.sass";
+import "../../assets/styles/modules/dialogs.sass";
 import MessageItem from '../../components/dialogs/MessageItem';
 import DialogItem from '../../components/dialogs/DialogItem';
 import {addNewMessageTextCreator, updateNewMessageTextCreator } from '../../dataRedux/reducers/dialogsReducer';
@@ -18,7 +18,7 @@ const Dialogs = props => {
   };
 
   return (
-    <div className="dialogs-wrapper">
+    <div className="dialogs-page__wrapper page__wrapper">
 
       <h2>Dialogs</h2>
 

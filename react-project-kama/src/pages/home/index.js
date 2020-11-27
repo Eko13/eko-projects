@@ -3,12 +3,12 @@ import Banner from "../../components/home/banner/Banner";
 import Account from "../../components/home/account/Account";
 import MyPostsContainer from "../../components/home/posts/MyPostsContainer";
 
-import "../../styles/home.sass"
+import "../../assets/styles/modules/home.sass"
 
 const HomePage = props => {
 
     return (
-        <div className="main-page">
+        <div className="home-page__wrapper page__wrapper">
 
             <Banner/>
 
@@ -18,10 +18,6 @@ const HomePage = props => {
               statePosts={props.appData.profilePage}
               dispatch={props.dispatch}
             />
-
-            <div>
-              red
-            </div>
 
         </div>
     )

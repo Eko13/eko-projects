@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './App.sass';
+import './assets/styles/App.css';
+import './assets/styles/App.sass';
 
 import {
   BrowserRouter as Router,
@@ -9,9 +9,6 @@ import {
 
 import HomePage from './pages/home';
 import Dialogs from "./pages/dialogs";
-import News from "./pages/news";
-import Music from "./pages/music";
-import Settings from "./pages/settings";
 import Sidebar from "./components/sidebar/Sidebar";
 import Header from "./components/header/Header";
 import TodoListContainer from "./pages/todos/TodoListContainer";
@@ -20,70 +17,45 @@ const App = props => {
 
   return (
     <Router>
-      <div className="App">
-        <div className="main-wrapper">
-          <div className="sidebar-wrapper">
+      <div className="main__wrapper">
+        <Sidebar/>
 
-            <Sidebar/>
+        <Header/>
 
-          </div>
-          <div className="content-wrapper">
+        <div className="content__wrapper">
 
-            <Header/>
+          <Route
+            path="/home"
+            render={() =>
+              <HomePage
+                appData={props.appData}
+                dispatch={props.dispatch}
+              />
+            }
+          />
+          <Route
+            path="/dialogs"
+            render={() =>
+              <Dialogs
+                stateDialogs={props.appData.messagesPage}
+                dispatch={props.dispatch}
+              />
+            }
+          />
+          <Route
+            path="/todo"
+            render={() =>
+              <TodoListContainer
+                stateTodo={props.appData.todoPage}
+                dispatch={props.dispatch}
+              />
+            }
+          />
 
-            <Route
-              path="/home"
-              render={() =>
-                <HomePage
-                  appData={props.appData}
-                  dispatch={props.dispatch}
-                />
-              }
-            />
-            <Route
-              path="/dialogs"
-              render={() =>
-                <Dialogs
-                  stateDialogs={props.appData.messagesPage}
-                  dispatch={props.dispatch}
-                />
-              }
-            />
-            <Route
-              path="/news"
-              render={()=>
-                <News
-                  // appStore={props.appStore}
-                  dispatch={props.dispatch}
-                  appData={props.appData}
-                />
-              }
-            />
-            <Route
-              path="/music"
-              component={Music}
-            />
-            <Route
-              path="/settings"
-              component={Settings}
-            />
-            <Route
-              path="/todo"
-              render={
-                () => <TodoListContainer
-                  stateTodo={props.appData.todoPage}
-                  dispatch={props.dispatch}
-                />
-              }
-            />
-
-          </div>
         </div>
       </div>
     </Router>
-
   )
-
 };
 
 export default App;
