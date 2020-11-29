@@ -1,19 +1,20 @@
 import React from 'react';
+import ButtonLike from "../../../../components/buttons/ButtonLike";
 
-const PostItem = (props)=>{
-
-    return(
-        <li className="item_posts">
-            <h4 className="name-item">{props.name}, {props.age} лет</h4>
-            <span className="icon-chat">*</span>
-            {props.message}
-            <div className="like-wrap">
-                <span className="like-post">{props.like}</span>
-                <button>likes</button>
-            </div>
-        </li>
-    )
-
+const PostItem = ({name, age, message, like}) => {
+  return (
+    <div className="posts-block_item__wrapper">
+      <h6 className="posts-block_item__name">{name}, <span>{age} лет</span></h6>
+      <span className="icon-chat">*</span>
+      {message}
+      <div className="posts-block_item__actions">
+        <div className="posts-block_item__likes">
+          <span>{like}</span>
+          <ButtonLike/>
+        </div>
+      </div>
+    </div>
+  )
 };
 
 export default PostItem;

@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoItem from "./TodoItem";
+import {ButtonMain} from "../../../components/buttons/ButtonMain";
 
 const TodoList = props => {
 
@@ -29,33 +30,32 @@ const TodoList = props => {
 
   return (
     <>
-      <h2>Todo list</h2>
-
-      <input
-        ref={newTodoTitle}
-        type="text"
-        value={props.stateTodo.todoFieldText}
-        placeholder="Enter todo point"
-        onChange={onTodoChange}
-        onKeyPress={addTodoPress}
-      />
-      <button
-        onClick={addTodoOnButton}
-        className="btn btn-custom"
-      >
-        Add todo
-      </button>
-
-      <ul className="todo-list">
-        {props.stateTodo.rowTodoList.map((tl, index) => (
+      <h2 className="page__title">Todo list</h2>
+      <div className="todo-page_form__wrapper">
+        <input
+          ref={newTodoTitle}
+          type="text"
+          value={props.stateTodo.todoFieldText}
+          placeholder="Enter todo point"
+          onChange={onTodoChange}
+          onKeyPress={addTodoPress}
+        />
+        <div className="btn-actions__wrapper __end">
+          <ButtonMain text="Add todo"
+                      onClick={addTodoOnButton}
+          />
+        </div>
+      </div>
+      <div className="todo-page_list__wrapper">
+        {props.stateTodo.rowTodoList.map((item, index) => (
           <TodoItem
             key={`TODO_LIST_ITEM_${index}`}
-            {...tl}
+            {...item}
             dispatch={props.dispatch}
             deleteItem={props.deleteItem}
           />
         ))}
-      </ul>
+      </div>
     </>
   )
 };

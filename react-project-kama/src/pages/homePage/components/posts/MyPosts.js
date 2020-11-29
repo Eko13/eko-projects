@@ -1,5 +1,6 @@
 import React from "react";
 import PostItem from './PostItem'
+import {ButtonMain} from "../../../../components/buttons/ButtonMain";
 
 const MyPosts = props => {
 
@@ -28,11 +29,11 @@ const MyPosts = props => {
   };
 
   return (
-    <div className="posts-wrapper">
-
-      <div className="post-wrapper">
-        <h4>My post</h4>
-        <div className="form-wrapper">
+    <div className="posts-block__wrapper">
+      <div className="posts-block__inner-wrapper">
+        <h3 className="page__sub-title">My posts</h3>
+        <div className="posts-block_create__wrapper">
+          <div className="posts-block_create__form">
           <textarea
             className="add-post-field"
             placeholder="message"
@@ -42,25 +43,23 @@ const MyPosts = props => {
             onChange={onPostChange}
             onKeyPress={addPostOnPress}
           />
-          <button
-            className="btn"
-            onClick={addPostOnButton}
-          >
-            Add Post
-          </button>
+          <div className="btn-actions__wrapper __end">
+            <ButtonMain text="Add Post" onClick={addPostOnButton}/>
+          </div>
+          </div>
+        </div>
+
+        <div className="posts-block_posts__wrapper">
+          {
+            props.statePosts.rowsPostsList.map((item, index) => (
+              <PostItem
+                key={item.id}
+                {...item}
+              />
+            ))
+          }
         </div>
       </div>
-
-      <ul className="list_posts">
-        {
-          props.statePosts.rowsPostsList.map((cp, index) => (
-            <PostItem
-              key={cp.id}
-              {...cp}
-            />
-          ))
-        }
-      </ul>
     </div>
   )
 

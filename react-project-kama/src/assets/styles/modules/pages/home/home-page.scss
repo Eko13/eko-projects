@@ -1,0 +1,87 @@
+.account-block {
+  &__wrapper {
+    width: 30%;
+  }
+
+  &__inner-wrapper {
+    @include box-styles;
+  }
+
+  &__image {
+    margin: 0 auto 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: $border-radius-round;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+
+    }
+  }
+
+  &__name {
+    margin-left: 15px;
+    text-align: center;
+  }
+
+  &_list {
+    margin-left: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.posts-block {
+  &__wrapper {
+    width: 70%;
+    padding-left: 30px;
+  }
+
+  &__inner-wrapper {
+    @include box-styles;
+  }
+
+  &_title {
+    margin-bottom: 30px;
+  }
+
+  &_create {
+    &__wrapper {
+      margin-bottom: 20px;
+    }
+
+    &__form {
+      textarea {
+        @include textareaField;
+      }
+    }
+  }
+
+  &_posts{
+    &__wrapper{
+
+    }
+  }
+
+  &_item{
+    &__wrapper{
+      padding: 10px 0;
+      border-bottom: 1px solid $border-grey;
+    }
+    &__actions{
+      margin-top: 5px;
+    }
+    &__likes{
+      margin-top: 5px;
+      span{
+        display: inline-block;
+        margin-right: 10px;
+        color: $main-color;
+      }
+    }
+  }
+
+}

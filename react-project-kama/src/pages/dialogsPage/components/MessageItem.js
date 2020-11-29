@@ -2,31 +2,27 @@ import React from 'react';
 
 const MessageItem = props => {
 
-  // let leftPosition = () => {
-  //   if (props.position === 'you') {
-  //     setPosition('right-side');
-  //   }else if (props.position === 'person'){
-  //     setPosition('left-side');
-  //   }else{
-  //     setPosition('');
-  //   }
-  // };
+  let findWriter = (position) => {
+    if (position === 'you') {
+      return 'right-side';
+    } else {
+      return "left-side";
+    }
+  };
 
   return (
-      <div className={`${props.position}` + ' ' + 'item-chat __wrap'}>
-        <div className="item-chat __inner-wrap">
-          <div className="item-chat __info">
-            <h5 className="name">{props.name}</h5>
-            <span className="time">{props.timeSend}</span>
-          </div>
-          <div>
-            Message id: {props.id}
-          </div>
-          <div className="item-chat __message-wrap">
-            <p>{props.message}</p>
-          </div>
+    <div className={`chat_item__wrapper ${findWriter(props.position)}`}>
+      <div className="chat_item__inner-wrapper">
+        <div className="chat_item__info __wrapper">
+          <h6 className="chat_item__info __name">{props.name}</h6>
+          <span className="chat_item__info __time">{props.timeSend}</span>
+          <span className="chat_item__info __id">Message id: {props.id}</span>
+        </div>
+        <div className="chat_item__message __wrapper">
+          <p>{props.message}</p>
         </div>
       </div>
+    </div>
   )
 
 };

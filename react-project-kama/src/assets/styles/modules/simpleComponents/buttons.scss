@@ -1,0 +1,37 @@
+.btn-actions__wrapper{
+    display: flex;
+    margin-top: 10px;
+    &.__center{
+        justify-content: center;
+    }
+    &.__space-between{
+        justify-content: space-between;
+    }
+    &.__end{
+        justify-content: flex-end;
+    }
+}
+
+.btn-custom{
+    transition: .2s;
+    cursor: pointer;
+    &[disabled]{
+        cursor: not-allowed;
+    }
+    &.btn-main{
+        padding: 10px 20px;
+        background-color: $main-color;
+        color: $text-white-color;
+        font-size: $smFontSize;
+        line-height: .85;
+        text-transform: uppercase;
+        box-shadow: none;
+        border: 2px solid $main-color;
+        border-radius: $border-radius-small;
+        cursor: pointer;
+        &:hover{
+            background-color: transparent;
+            color: $text-main-color;
+        }
+    }
+}

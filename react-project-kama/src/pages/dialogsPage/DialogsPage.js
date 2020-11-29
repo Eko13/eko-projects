@@ -2,6 +2,8 @@ import React from 'react';
 import MessageItem from './components/MessageItem';
 import DialogItem from './components/DialogItem';
 import {addNewMessageTextCreator, updateNewMessageTextCreator} from '../../dataRedux/reducers/dialogsReducer';
+import ChatForm from "./components/ChatForm";
+import {ButtonMain} from "../../components/buttons/ButtonMain";
 
 const DialogsPage = props => {
 
@@ -18,31 +20,34 @@ const DialogsPage = props => {
 
   return (
     <div className="dialogs-page__wrapper page__wrapper">
-      <h2>Dialogs</h2>
+      <h2 className="page__title">Dialogs</h2>
       <div className="flex-wrapper">
-        <div className="list-dialogs __wrap">
-          {props.stateDialogs.rowsListDialogs.map((ld, index) => (
-            <DialogItem
-              key={`LIST_DIALOGS_ITEM_${index}`}
-              name={ld.name}
-              id={ld.id}/>
-          ))}
-        </div>
-        <div className="chat-dialogs __wrap">
-          <div className="messages-dialogs __wrap">
-            {props.stateDialogs.rowsChatDialogs.map((cd, index) => (
-              <MessageItem
-                key={`CHAT_DIALOGS_ITEM_${index}`}
-                name={cd.personName}
-                message={cd.message}
-                timeSend={cd.timeSend}
-                id={cd.id}
-                position={cd.whoWrite}
-              />
+        <div className="dialogs-page_dialogs__wrapper">
+          <div className="dialogs-page_dialogs__inner-wrapper">
+            {props.stateDialogs.rowsListDialogs.map((ld, index) => (
+              <DialogItem
+                key={`LIST_DIALOGS_ITEM_${index}`}
+                name={ld.name}
+                id={ld.id}/>
             ))}
           </div>
-          <div className="write-message __wrap">
-            <div className="field-wrapper">
+        </div>
+        <div className="dialogs-page_chat__wrapper">
+          <div className="dialogs-page_chat__inner-wrapper">
+            <div className="dialogs-page_chat__list">
+              {props.stateDialogs.rowsChatDialogs.map((item, index) => (
+                <MessageItem
+                  key={`CHAT_DIALOGS_ITEM_${index}`}
+                  name={item.personName}
+                  message={item.message}
+                  timeSend={item.timeSend}
+                  id={item.id}
+                  position={item.whoWrite}
+                />
+              ))}
+            </div>
+            <div className="dialogs-page_chat__form">
+              <div className="chat_form__wrapper">
               <textarea
                 ref={newMessageText}
                 name="newMassage"
@@ -50,12 +55,10 @@ const DialogsPage = props => {
                 value={props.stateDialogs.chatFieldText}
                 onChange={onMessageChange}
               />
-              <button
-                className="btn"
-                onClick={addNewMessage}
-              >
-                Send Message
-              </button>
+                <div className="btn-actions__wrapper __end">
+                  <ButtonMain text="Send Message" onClick={addNewMessage}/>
+                </div>
+              </div>
             </div>
           </div>
         </div>

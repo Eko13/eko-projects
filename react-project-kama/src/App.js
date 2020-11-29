@@ -8,7 +8,6 @@ import {
 
 import Header from "./components/segments/header/Header";
 import Sidebar from "./components/segments/sidebar/Sidebar";
-import Footer from "./components/segments/footer/Footer";
 import HomePage from './pages/homePage/HomePage';
 import Dialogs from "./pages/dialogsPage/DialogsPage";
 import TodoPage from "./pages/todoPage/TodoPage";
@@ -19,41 +18,42 @@ const App = (props) => {
   return (
     <Router>
       <div className="main__wrapper">
-        <MainBanner />
+        <MainBanner/>
         <Sidebar/>
         <Header/>
 
         <div className="content__wrapper">
-          <Route
-            path="/home"
-            render={() =>
-              <HomePage
-                appData={props.appData}
-                dispatch={props.dispatch}
-              />
-            }
-          />
-          <Route
-            path="/dialogs"
-            render={() =>
-              <Dialogs
-                stateDialogs={props.appData.messagesPage}
-                dispatch={props.dispatch}
-              />
-            }
-          />
-          <Route
-            path="/todo"
-            render={() =>
-              <TodoPage
-                stateTodo={props.appData.todoPage}
-                dispatch={props.dispatch}
-              />
-            }
-          />
-        </div>
+          <div className="content__inner-wrapper">
+            <Route
+              path="/home"
+              render={() =>
+                <HomePage
+                  appData={props.appData}
+                  dispatch={props.dispatch}
+                />
+              }
+            />
+            <Route
+              path="/dialogs"
+              render={() =>
+                <Dialogs
+                  stateDialogs={props.appData.messagesPage}
+                  dispatch={props.dispatch}
+                />
+              }
+            />
+            <Route
+              path="/todo"
+              render={() =>
+                <TodoPage
+                  stateTodo={props.appData.todoPage}
+                  dispatch={props.dispatch}
+                />
+              }
+            />
+          </div>
 
-        <Footer />
+        </div>
       </div>
     </Router>
   )
