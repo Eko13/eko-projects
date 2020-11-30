@@ -9,10 +9,10 @@ const Account = ({name, avatar, lastName}) => {
         </div>
         <h3 className="account-block__name">{name} {lastName}</h3>
         <ul className="account-block_list">
-          <li><b>Date:</b></li>
-          <li><b>City:</b></li>
-          <li><b>Educations:</b></li>
-          <li><b>Web Site:</b></li>
+          <li>Date: <b>info</b></li>
+          <li>City: <b>info</b></li>
+          <li>Educations: <b>info</b></li>
+          <li>Web Site: <b>info</b></li>
         </ul>
       </div>
     </div>
