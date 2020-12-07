@@ -11,6 +11,7 @@ import Sidebar from "./components/segments/sidebar/Sidebar";
 import HomePage from './pages/homePage/HomePage';
 import Dialogs from "./pages/dialogsPage/DialogsPage";
 import TodoPage from "./pages/todoPage/TodoPage";
+import HooksPage from "./pages/hooksPage/HooksPage";
 import {MainBanner} from "./components/segments/banner/MainBanner";
 
 const App = (props) => {
@@ -50,6 +51,10 @@ const App = (props) => {
                   dispatch={props.dispatch}
                 />
               }
+            />
+            <Route
+              path="/hooks"
+              render={() => <HooksPage/> }
             />
           </div>
 

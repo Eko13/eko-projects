@@ -15,6 +15,7 @@ const Sidebar = () => {
           <li className="sidebar_list__item"><NavLink to="/dialogs" exact className="item_sidebar">Dialogs</NavLink>
           </li>
           <li className="sidebar_list__item"><NavLink to="/todo" exact className="item_sidebar">To do page</NavLink></li>
+          <li className="sidebar_list__item"><NavLink to="/hooks" exact className="item_sidebar">Hooks page</NavLink></li>
         </ul>
 
         <BestFriends/>
