@@ -7,13 +7,6 @@
       max-width: 600px;
       margin-bottom: 20px;
       @include box-styles;
-      input{
-        width: 100%;
-        padding: 10px 15px;
-        box-shadow: none;
-        border: 1px solid $border-grey;
-        border-radius: $border-radius-small;
-      }
     }
   }
   &_list{

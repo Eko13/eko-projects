@@ -104,3 +104,7 @@ p {
         margin-bottom: 20px;
     }
 }
+
+.box-styles{
+    @include box-styles;
+}

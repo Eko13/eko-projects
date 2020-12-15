@@ -1,0 +1,26 @@
+.multi-select{
+  &__wrapper{
+
+  }
+
+  &_btn{
+    &__wrapper{
+      display: flex;
+      .btn-custom{
+        margin-right: 30px;
+      }
+    }
+  }
+
+  &__custom-select{
+    .dropdown-content{
+      min-width: 300px;
+    }
+  }
+
+  &_values{
+    &__wrapper{
+      margin-top: 30px;
+    }
+  }
+}
