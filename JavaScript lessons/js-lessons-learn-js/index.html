@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="js/js-test.js"></script>
     <script src="js/lesson1/js1.js"></script>
 </head>
 <body>
 
-<h1>hi</h1>
+<button class="button-hide">click me!</button>
+
+<script>
+
+  let button = document.querySelector(".button-hide");
+
+  function hideSelf(){
+    console.log("button =>", button);
+    button.setAttribute("hidden", "hidden");
+  }
+
+  button.addEventListener('click', hideSelf);
+
+</script>
 </body>
 </html>
