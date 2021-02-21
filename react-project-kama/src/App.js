@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import './App.scss';
 
 import {
@@ -43,10 +43,9 @@ const App = (props) => {
                 />
               }
             />
-            <Route
-              path="/todo"
-              render={() =>
-                <TodoPage
+            <Route path="/todo"
+              render={
+                () => <TodoPage
                   stateTodo={props.appData.todoPage}
                   dispatch={props.dispatch}
                 />
