@@ -1,0 +1,110 @@
+
+body {
+    font-family: $primary-font-regular;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+a, button, input, textarea {
+    outline: none !important;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"]{
+    cursor: pointer;
+}
+
+textarea{
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: $link-color;
+    transition: .2s;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    li{
+        list-style: none;
+    }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: $text-dark-color;
+    font-family: $primary-font-bold;
+    font-weight: 700;
+    margin: 0;
+}
+
+h1 {
+    font-size: $h1-font-size;
+}
+
+h2 {
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+h4 {
+    font-size: $h4-font-size;
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
+h6 {
+    font-size: $h6-font-size;
+}
+
+p {
+    font-size: $text-font-size;
+    font-family: $textFont;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.abs-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.flex-wrapper{
+    display: flex;
+    &.__center{
+        justify-content: center;
+    }
+    &.__space-between{
+        justify-content: space-between;
+    }
+}
+
+.page{
+    &__wrapper{
+
+    }
+    &__title{
+        margin-bottom: 40px;
+    }
+    &__sub-title{
+        margin-bottom: 20px;
+    }
+}
+
+.box-styles{
+    @include box-styles;
+}

@@ -1,0 +1,14 @@
+.header{
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    position: fixed;
+    top: 0;
+    left: $sidebar-size;
+    right: 0;
+    background-color: $header-bg;
+    z-index: 3;
+    box-shadow: $header-box-shadow;
+  }
+}

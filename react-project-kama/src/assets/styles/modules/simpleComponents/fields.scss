@@ -1,0 +1,10 @@
+.field-custom{
+  width: 100%;
+  padding: 10px 15px;
+  box-shadow: none;
+  border: 1px solid $border-grey;
+  border-radius: $border-radius-small;
+  &.field-main{
+    color: $text-main-color;
+  }
+}

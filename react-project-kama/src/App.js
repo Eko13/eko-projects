@@ -1,33 +1,32 @@
-import React from 'react';
-import './App.css';
-import './App.sass';
+ import React from 'react';
+import './App.scss';
 
 import {
   BrowserRouter as Router,
   Route
 } from "react-router-dom";
 
-import HomePage from './pages/home';
-import Dialogs from "./pages/dialogs";
-import News from "./pages/news";
-import Music from "./pages/music";
-import Settings from "./pages/settings";
-import Sidebar from "./components/sidebar/Sidebar";
-import Header from "./components/header/Header";
-import TodoList from "./pages/todos/TodoList";
+import Header from "./components/segments/header/Header";
+import Sidebar from "./components/segments/sidebar/Sidebar";
+import HomePage from './pages/homePage/HomePage';
+import Dialogs from "./pages/dialogsPage/DialogsPage";
+import TodoPage from "./pages/todoPage/TodoPage";
+import HooksPage from "./pages/hooksPage/HooksPage";
+import {MainBanner} from "./components/segments/banner/MainBanner";
 
-const App = props => {
+const App = (props) => {
 
   return (
     <Router>
-      <div className="App">
-        <div className="main-wrapper">
-          <div className="sidebar-wrapper">
-            <Sidebar/>
-          </div>
-          <div className="content-wrapper">
-            <Header/>
-            <Route path="/home"
+      <div className="main__wrapper">
+        <MainBanner/>
+        <Sidebar/>
+        <Header/>
+
+        <div className="content__wrapper">
+          <div className="content__inner-wrapper">
+            <Route
+              path="/home"
               render={() =>
                 <HomePage
                   appData={props.appData}
@@ -35,7 +34,8 @@ const App = props => {
                 />
               }
             />
-            <Route path="/dialogs"
+            <Route
+              path="/dialogs"
               render={() =>
                 <Dialogs
                   stateDialogs={props.appData.messagesPage}
@@ -43,34 +43,24 @@ const App = props => {
                 />
               }
             />
-
-            <Route path="/news"
-              render={()=>
-                <News
-                  // appStore={props.appStore}
-                  dispatch={props.dispatch}
-                  appData={props.appData}
-                />
-              }
-            />
-            <Route path="/music" component={Music}/>
-            <Route path="/settings" component={Settings}/>
             <Route path="/todo"
               render={
-                () => <TodoList
+                () => <TodoPage
                   stateTodo={props.appData.todoPage}
                   dispatch={props.dispatch}
                 />
               }
             />
-
+            <Route
+              path="/hooks"
+              render={() => <HooksPage/> }
+            />
           </div>
+
         </div>
       </div>
     </Router>
-
   )
-
 };
 
 export default App;

@@ -1,3 +1,6 @@
 ************ CODES ************
 
 sudo -u postgres psql 		(ищет локальную версию psql)
+
+git ci --amend                  ====    Добавляет изменения в последний комит
+git push origin _branch_name_ -f     ====    -f  после git ci --amend (сливает изменения без вопросов)

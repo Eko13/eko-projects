@@ -1,0 +1,53 @@
+.sidebar {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: $sidebar-size;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: $sidebar-bg;
+        box-shadow: $sidebar-box-shadow;
+        z-index: 3;
+    }
+
+    &_brand {
+        &__wrapper {
+            flex: 0 1 auto;
+            margin-bottom: 50px;
+        }
+        &__link {
+            position: relative;
+            display: block;
+            padding: 18px 15px;
+            background-color: $main-color;
+            color: $text-white-color;
+            font-size: 1.5rem;
+            font-family: $primary-font-black;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+    &_list {
+        margin: 0 0 50px 0;
+        padding: 0 15px;
+        flex: 1 1 auto;
+        &__item {
+            color: #ffffff;
+            list-style: none;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            &:not(:last-child){
+                margin-bottom: 10px;
+            }
+            a{
+                display: block;
+                text-transform: uppercase;
+                @include link-styles;
+            }
+        }
+    }
+}
+

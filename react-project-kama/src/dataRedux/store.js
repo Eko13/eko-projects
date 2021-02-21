@@ -2,10 +2,14 @@ import PostReducer  from './reducers/postsReducer';
 import TodoReducer from "./reducers/todoReducer";
 import DialogsReducer from "./reducers/dialogsReducer";
 
-const SHOW_ALERT = 'SHOW_ALERT';
-
 
 let store = {
+
+  accountConst : {
+    name: "Jon",
+    lasName: "Moscow",
+    avatar: "http://lorempixel.com/200/200"
+  },
 
   _state: {
     seeText: 'seeText in state',
@@ -49,11 +53,11 @@ let store = {
     },
     bestFriends: {
       rowBestFriends: [
-        {id: 'bf1', personName: 'Merch', avatarImage: 'https://api.adorable.io/avatars/285/abott@adorable.io.png',},
-        {id: 'bf2', personName: 'Bek', avatarImage: 'https://api.adorable.io/avatars/285/abott@adorable.io.png'},
-        {id: 'bf3', personName: 'Luda', avatarImage: 'https://api.adorable.io/avatars/285/abott@adorable.io.png'},
-        {id: 'bf4', personName: 'Sureb', avatarImage: 'https://api.adorable.io/avatars/285/abott@adorable.io.png'},
-        {id: 'bf5', personName: 'Kiben', avatarImage: 'https://api.adorable.io/avatars/285/abott@adorable.io.png'}
+        {id: 'bf1', personName: 'Merch', avatarImage: 'http://lorempixel.com/40/40',},
+        {id: 'bf2', personName: 'Bek', avatarImage: 'http://lorempixel.com/40/40'},
+        {id: 'bf3', personName: 'Luda', avatarImage: 'http://lorempixel.com/40/40'},
+        {id: 'bf4', personName: 'Sureb', avatarImage: 'http://lorempixel.com/40/40'},
+        {id: 'bf5', personName: 'Kiben', avatarImage: 'http://lorempixel.com/40/40'}
       ]
     }
   },
@@ -89,7 +93,6 @@ let store = {
 
 };
 
-export const showAlertActionType = () => ({type: 'SHOW_ALERT'}); //и так можно ретёрнить
 
 export default store;
 

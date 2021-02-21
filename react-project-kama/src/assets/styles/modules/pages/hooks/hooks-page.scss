@@ -1,0 +1,13 @@
+.hooks{
+  &_item{
+    &__wrapper{
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $border-grey;
+    }
+    &__inner-wrapper{
+      margin-bottom: 20px;
+      @include box-styles;
+    }
+  }
+}

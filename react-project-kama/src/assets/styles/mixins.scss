@@ -1,0 +1,44 @@
+@mixin box-styles {
+    padding: 15px;
+    border-radius: $border-radius-medium;
+    background-color: $white-bg-color;
+    box-shadow: $primary-box-shadow;
+}
+
+@mixin link-styles{
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    color: $text-grey-color;
+    line-height: 1;
+    &:before{
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $second-color;
+        width: 2px;
+        height: 0;
+        opacity: 0;
+        transition: .2s;
+    }
+    &:hover{
+        color: $text-dark-color;
+    }
+    &.__active{
+        color: $text-dark-color;
+        &:before{
+            height: 100%;
+            opacity: 1;
+        }
+    }
+}
+
+@mixin textareaField{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 200px;
+    min-height: 120px;
+    padding: 15px;
+}

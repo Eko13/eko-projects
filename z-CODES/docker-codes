@@ -1,0 +1,7 @@
+************ CODES ************
+
+sudo docker-compose build 	(билдит)
+sudo docker-compose ps  	(проверка)
+sudo docker-compose up -d 	(поднимает докер (базы))
+
+sudo docker-compose up pg db	(запускает докер)
